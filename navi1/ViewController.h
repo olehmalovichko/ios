@@ -10,18 +10,7 @@
 
 
 
-@interface ViewController : UIViewController
-
-<UITableViewDelegate, UITableViewDataSource>
-
-{
-   IBOutlet UILabel *labelTemp;
-}
-
-- (IBAction)updateTemp:(id) sender;
-
-
-
+@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 
 @end

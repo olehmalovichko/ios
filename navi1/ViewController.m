@@ -10,52 +10,52 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *labelTemperature;
+
+@property (strong, nonatomic) NSArray *tableData;
+
+@property (weak, nonatomic) IBOutlet UITableView *qqqq;
 @end
 
 @implementation ViewController {
-   NSArray *tableData;
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"start");
     // Initialize table data
-   tableData = [NSArray arrayWithObjects:@"Киев", @"Харьков", @"Днепропетровск", @"Кременчуг",nil];
+    // @["2", "3"];
+    self.tableData = [NSArray arrayWithObjects:@"Киев", @"Харьков", @"Днепропетровск", @"Кременчуг",nil];
+    self.qqqq.dataSource = self;
+    self.qqqq.delegate = self;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [tableData count];
+#pragma mark - UITableViewDataSource
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    
+    cell.textLabel.text = [self.tableData objectAtIndex:indexPath.row];
+    cell.imageView.image = [ UIImage imageNamed:@"weather.jpg"];
+    
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.tableData.count;
 }
 
 
-                
- - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-     static NSString *simpleTableIdentifier = @"SimpleTableItem";
-     
-     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-     
-     if (cell == nil) {
-         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-     }
-     
-     cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
-     cell.imageView.image = [ UIImage imageNamed:@"weather.jpg"];
-     
-     return cell;
- }
+#pragma mark - UITableViewDelegate
 
-- (IBAction)updateText:(id)sender {
-    NSLog(@"button click");
-}
-
-- (IBAction)updateTemp:(id)sender {
-   labelTemp.text = @"Hello";
-   NSLog(@"label");
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     // self.selectedIndexPath = indexPath;
     //  [tableView reloadData];
@@ -71,20 +71,18 @@
     
     //http://api.openweathermap.org/data/2.5/weather?id=704147
     NSData *allCoursesData = [[NSData alloc] initWithContentsOfURL:
-     [NSURL URLWithString:@"http://api.openweathermap.org/data/2.5/weather?id=704147"]];
+                              [NSURL URLWithString:@"http://api.openweathermap.org/data/2.5/weather?id=704147"]];
     NSError *error;
-
-
-    NSMutableDictionary *dict = [NSJSONSerialization
-                                       JSONObjectWithData:allCoursesData
-                                       options:NSJSONReadingMutableContainers
-                                       error:&error];
     
-    if( error )
-    {
+    
+    NSMutableDictionary *dict = [NSJSONSerialization
+                                 JSONObjectWithData:allCoursesData
+                                 options:NSJSONReadingMutableContainers
+                                 error:&error];
+    
+    if( error ) {
         NSLog(@"%@", [error localizedDescription]);
-    }
-    else {
+    } else {
         //NSLog(@"%@", dict);
         //NSArray *keys = [dict allKeys];
         
@@ -96,12 +94,9 @@
         NSLog(@"temp: %@",[mainDetails objectForKey:@"temp"]);
         NSLog(@"humidity: %@",[mainDetails objectForKey:@"humidity"]);
         NSLog(@"------");
-        
+        self.labelTemperature.text = [NSString stringWithFormat:@"%@", mainDetails[@"temp"]];
     }
-  
-    labelTemp.text = @"Hello";
     
 }
-
 
 @end
