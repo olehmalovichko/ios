@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84C0D6861AAA1CE80040DC3A /* SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C0D6851AAA1CE80040DC3A /* SettingsVC.m */; };
 		84F4856D1AA996830019CC75 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F4856C1AA996830019CC75 /* main.m */; };
 		84F485701AA996830019CC75 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F4856F1AA996830019CC75 /* AppDelegate.m */; };
 		84F485731AA996830019CC75 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F485721AA996830019CC75 /* ViewController.m */; };
@@ -14,6 +15,7 @@
 		84F485781AA996830019CC75 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84F485771AA996830019CC75 /* Images.xcassets */; };
 		84F4857B1AA996830019CC75 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F485791AA996830019CC75 /* LaunchScreen.xib */; };
 		84F485871AA996840019CC75 /* navi1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F485861AA996840019CC75 /* navi1Tests.m */; };
+		84F485911AA9D6A30019CC75 /* weather.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84F485901AA9D6A30019CC75 /* weather.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84C0D6841AAA1CE80040DC3A /* SettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsVC.h; sourceTree = "<group>"; };
+		84C0D6851AAA1CE80040DC3A /* SettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsVC.m; sourceTree = "<group>"; };
 		84F485671AA996830019CC75 /* navi1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = navi1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F4856B1AA996830019CC75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84F4856C1AA996830019CC75 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +44,7 @@
 		84F485801AA996840019CC75 /* navi1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = navi1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F485851AA996840019CC75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84F485861AA996840019CC75 /* navi1Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = navi1Tests.m; sourceTree = "<group>"; };
+		84F485901AA9D6A30019CC75 /* weather.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = weather.jpg; path = ../weather.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +86,7 @@
 		84F485691AA996830019CC75 /* navi1 */ = {
 			isa = PBXGroup;
 			children = (
+				84F485901AA9D6A30019CC75 /* weather.jpg */,
 				84F4856E1AA996830019CC75 /* AppDelegate.h */,
 				84F4856F1AA996830019CC75 /* AppDelegate.m */,
 				84F485711AA996830019CC75 /* ViewController.h */,
@@ -89,6 +95,8 @@
 				84F485771AA996830019CC75 /* Images.xcassets */,
 				84F485791AA996830019CC75 /* LaunchScreen.xib */,
 				84F4856A1AA996830019CC75 /* Supporting Files */,
+				84C0D6841AAA1CE80040DC3A /* SettingsVC.h */,
+				84C0D6851AAA1CE80040DC3A /* SettingsVC.m */,
 			);
 			path = navi1;
 			sourceTree = "<group>";
@@ -201,6 +209,7 @@
 			files = (
 				84F485761AA996830019CC75 /* Main.storyboard in Resources */,
 				84F4857B1AA996830019CC75 /* LaunchScreen.xib in Resources */,
+				84F485911AA9D6A30019CC75 /* weather.jpg in Resources */,
 				84F485781AA996830019CC75 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84F485731AA996830019CC75 /* ViewController.m in Sources */,
+				84C0D6861AAA1CE80040DC3A /* SettingsVC.m in Sources */,
 				84F485701AA996830019CC75 /* AppDelegate.m in Sources */,
 				84F4856D1AA996830019CC75 /* main.m in Sources */,
 			);
@@ -414,6 +424,7 @@
 				84F4858C1AA996840019CC75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84F4858D1AA996840019CC75 /* Build configuration list for PBXNativeTarget "navi1Tests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +433,7 @@
 				84F4858F1AA996840019CC75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,7 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+
+
 @interface ViewController : UIViewController
+
+<UITableViewDelegate, UITableViewDataSource>
+
+{
+   IBOutlet UILabel *labelTemp;
+}
+
+- (IBAction)updateTemp:(id) sender;
+
+
+
 
 
 @end
