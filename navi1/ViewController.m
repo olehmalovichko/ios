@@ -11,10 +11,9 @@
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *labelTemperature;
-
 @property (strong, nonatomic) NSArray *tableData;
+@property (weak, nonatomic) IBOutlet UITableView *tableCity;
 
-@property (weak, nonatomic) IBOutlet UITableView *qqqq;
 @end
 
 @implementation ViewController {
@@ -27,8 +26,8 @@
     // Initialize table data
     // @["2", "3"];
     self.tableData = [NSArray arrayWithObjects:@"Киев", @"Харьков", @"Днепропетровск", @"Кременчуг",nil];
-    self.qqqq.dataSource = self;
-    self.qqqq.delegate = self;
+    self.tableCity.dataSource = self;
+    self.tableCity.delegate = self;
 }
 
 #pragma mark - UITableViewDataSource
@@ -71,7 +70,7 @@
     
     //http://api.openweathermap.org/data/2.5/weather?id=704147
     NSData *allCoursesData = [[NSData alloc] initWithContentsOfURL:
-                              [NSURL URLWithString:@"http://api.openweathermap.org/data/2.5/weather?id=704147"]];
+                              [NSURL URLWithString:@"http://api.openweathermap.org/data/2.5/weather?id=704147&units=metric&lang=ru"]];
     NSError *error;
     
     
@@ -94,7 +93,7 @@
         NSLog(@"temp: %@",[mainDetails objectForKey:@"temp"]);
         NSLog(@"humidity: %@",[mainDetails objectForKey:@"humidity"]);
         NSLog(@"------");
-        self.labelTemperature.text = [NSString stringWithFormat:@"%@", mainDetails[@"temp"]];
+        self.labelTemperature.text = [NSString stringWithFormat:@"%@%@", mainDetails[@"temp"],@"\u00B0"];
     }
     
 }
