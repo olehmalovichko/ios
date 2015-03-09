@@ -48,7 +48,9 @@
     
     // Initialize table data
     // @["2", "3"];
-    self.tableData = [NSArray arrayWithObjects:@"Киев", @"Харьков", @"Днепропетровск", @"Кременчуг",nil];
+    
+//    self.tableData = [NSArray arrayWithObjects:@"Киев", @"Харьков", @"Днепропетровск", @"Кременчуг",nil];
+    self.tableData = @[newCityClass,newCityClass2,newCityClass3,newCityClass4];
     self.tableCity.dataSource = self;
     self.tableCity.delegate = self;
 }
@@ -64,8 +66,11 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-    cell.textLabel.text = [self.tableData objectAtIndex:indexPath.row];
+//    cell.textLabel.text = [self.tableData objectAtIndex:indexPath.row];
+    CityClass *tclass = [self.tableData objectAtIndex:indexPath.row];
+    cell.textLabel.text =  [NSString stringWithFormat:@"%@  %@%@C",tclass.nameCity,tclass.tempCity,@"\u00B0" ];
     cell.imageView.image = [ UIImage imageNamed:@"weather.jpg"];
+    
     
     return cell;
 }
@@ -91,33 +96,8 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    //http://api.openweathermap.org/data/2.5/weather?id=704147
-    NSData *allCoursesData = [[NSData alloc] initWithContentsOfURL:
-                              [NSURL URLWithString:@"http://api.openweathermap.org/data/2.5/weather?id=704147&units=metric&lang=ru"]];
-    NSError *error;
-    
-    
-    NSMutableDictionary *dict = [NSJSONSerialization
-                                 JSONObjectWithData:allCoursesData
-                                 options:NSJSONReadingMutableContainers
-                                 error:&error];
-    
-    if( error ) {
-        NSLog(@"%@", [error localizedDescription]);
-    } else {
-        //NSLog(@"%@", dict);
-        //NSArray *keys = [dict allKeys];
-        
-        NSLog(@"city: %@",[dict objectForKey:@"name"]);
-        NSLog(@"%@",[dict objectForKey:@"main"]);
-        
-        
-        NSDictionary *mainDetails = [dict objectForKey:@"main"];
-        NSLog(@"temp: %@",[mainDetails objectForKey:@"temp"]);
-        NSLog(@"humidity: %@",[mainDetails objectForKey:@"humidity"]);
-        NSLog(@"------");
-        self.labelTemperature.text = [NSString stringWithFormat:@"%@%@", mainDetails[@"temp"],@"\u00B0"];
-    }
+     CityClass *tclass = [self.tableData objectAtIndex:indexPath.row];
+     self.labelTemperature.text = [NSString stringWithFormat:@"%@%@",tclass.tempCity,@"\u00B0"];
     
 }
 
