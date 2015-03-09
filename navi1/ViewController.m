@@ -25,12 +25,26 @@
     NSLog(@"start");
     
     CityClass *newCityClass = [[CityClass alloc]init];
-    newCityClass.nameCity = @"Кременчуг";
-    newCityClass.idCity=@"704147";
-    BOOL result = [ newCityClass getWeather:nil];
+    newCityClass.nameCity = @"Киев";
+    newCityClass.idCity=@"696050";
+    [ newCityClass getWeather:0];
 
-    
-    NSLog(@"%@  %@", newCityClass.nameCity,newCityClass.idCity);
+    CityClass *newCityClass2 = [[CityClass alloc]init];
+    newCityClass2.nameCity = @"Харьков";
+    newCityClass2.idCity=@"706483";
+    [ newCityClass2 getWeather:0];
+
+    CityClass *newCityClass3 = [[CityClass alloc]init];
+    newCityClass3.nameCity = @"Днепропетровск";
+    newCityClass3.idCity=@"709930";
+    [ newCityClass3 getWeather:0];
+
+    CityClass *newCityClass4 = [[CityClass alloc]init];
+    newCityClass4.nameCity = @"Кременчуг";
+    newCityClass4.idCity=@"704147";
+    [ newCityClass4 getWeather:0];
+
+       
     
     // Initialize table data
     // @["2", "3"];

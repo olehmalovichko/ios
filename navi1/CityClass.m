@@ -12,10 +12,12 @@
 
 
 
-- (BOOL)getWeather: (char)idcity{
-
-    NSData *allCoursesData = [[NSData alloc] initWithContentsOfURL:
-                              [NSURL URLWithString:@"http://api.openweathermap.org/data/2.5/weather?id=704147&units=metric&lang=ru"]];
+- (BOOL)getWeather: (int)idcity{
+    
+    
+    NSString *sURL = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?id=%@&units=metric&lang=ru",self.idCity];
+    NSData *allCoursesData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:sURL]];
+    
     NSError *error;
     
     
@@ -29,17 +31,18 @@
         //NSLog(@"%@", dict);
         //NSArray *keys = [dict allKeys];
         
-        NSLog(@"city: %@",[dict objectForKey:@"name"]);
-        NSLog(@"%@",[dict objectForKey:@"main"]);
-        
-        
+        //        NSLog(@"city: %@",[dict objectForKey:@"name"]);
+        //        NSLog(@"%@",[dict objectForKey:@"main"]);
         NSDictionary *mainDetails = [dict objectForKey:@"main"];
-        NSLog(@"temp: %@",[mainDetails objectForKey:@"temp"]);
-        NSLog(@"humidity: %@",[mainDetails objectForKey:@"humidity"]);
-        NSLog(@"------");
-          }
+        //        NSLog(@"temp: %@",[mainDetails objectForKey:@"temp"]);
+        //        NSLog(@"humidity: %@",[mainDetails objectForKey:@"humidity"]);
+        //        NSLog(@"------");
+        
+        self.tempCity = [mainDetails objectForKey:@"temp"] ;
+        NSLog(@"%@  %@", self.nameCity,self.tempCity);
+    }
     
-
+    
     
     return (0);
 }
