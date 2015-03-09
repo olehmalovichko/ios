@@ -25,10 +25,12 @@
     NSLog(@"start");
     
     CityClass *newCityClass = [[CityClass alloc]init];
- //   BOOL total = [newCityClass ExaminationCount:85];
-    newCityClass.nameCity = @"Кременчуг!!!";
+    newCityClass.nameCity = @"Кременчуг";
+    newCityClass.idCity=@"704147";
+    BOOL result = [ newCityClass getWeather:nil];
+
     
-    NSLog(@"%@", newCityClass.nameCity);
+    NSLog(@"%@  %@", newCityClass.nameCity,newCityClass.idCity);
     
     // Initialize table data
     // @["2", "3"];

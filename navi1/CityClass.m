@@ -10,12 +10,36 @@
 
 @implementation CityClass
 
-//- (BOOL)ExaminationCount: (int)count{
-//    return (count >=80);
-//}
 
-- (BOOL)getWeathet: (char)idcity{
+
+- (BOOL)getWeather: (char)idcity{
+
+    NSData *allCoursesData = [[NSData alloc] initWithContentsOfURL:
+                              [NSURL URLWithString:@"http://api.openweathermap.org/data/2.5/weather?id=704147&units=metric&lang=ru"]];
+    NSError *error;
     
+    
+    NSMutableDictionary *dict = [NSJSONSerialization
+                                 JSONObjectWithData:allCoursesData
+                                 options:NSJSONReadingMutableContainers
+                                 error:&error];
+    if( error ) {
+        NSLog(@"%@", [error localizedDescription]);
+    } else {
+        //NSLog(@"%@", dict);
+        //NSArray *keys = [dict allKeys];
+        
+        NSLog(@"city: %@",[dict objectForKey:@"name"]);
+        NSLog(@"%@",[dict objectForKey:@"main"]);
+        
+        
+        NSDictionary *mainDetails = [dict objectForKey:@"main"];
+        NSLog(@"temp: %@",[mainDetails objectForKey:@"temp"]);
+        NSLog(@"humidity: %@",[mainDetails objectForKey:@"humidity"]);
+        NSLog(@"------");
+          }
+    
+
     
     return (0);
 }
