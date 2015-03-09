@@ -23,6 +23,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"start");
+    
+    CityClass *newCityClass = [[CityClass alloc]init];
+ //   BOOL total = [newCityClass ExaminationCount:85];
+    newCityClass.nameCity = @"Кременчуг!!!";
+    
+    NSLog(@"%@", newCityClass.nameCity);
+    
     // Initialize table data
     // @["2", "3"];
     self.tableData = [NSArray arrayWithObjects:@"Киев", @"Харьков", @"Днепропетровск", @"Кременчуг",nil];
