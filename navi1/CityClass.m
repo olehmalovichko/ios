@@ -16,7 +16,7 @@
     
     //http://api.openweathermap.org/data/2.5/weather?id=696050&units=metric&lang=ru
     
-    NSString *sURL = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?id=%@&units=metric&lang=ru",self.idCity];
+    NSString *sURL = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?id=%@&units=metric&lang=en",self.idCity];
     
     NSData *allCoursesData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:sURL]];
     
@@ -42,14 +42,11 @@
             
             NSDictionary *mainDetails = [dict objectForKey:@"main"];
             self.tempCity = [mainDetails objectForKey:@"temp"] ;
-            
-//            NSDictionary *mainWeather = [dict objectForKey:@"weather"];
+       
             NSArray *arweather = [dict objectForKey:@"weather"];
-            NSLog(@"%@",arweather);
+            self.weather = [NSString stringWithFormat:@"%@",[arweather valueForKey:@"description"]];
+            NSLog(@"description:%@",self.weather);
             
-        
-            //        NSArray *weather1 = [[mainWeather objectForKey:@"weather"] allKeys];
-            //        self.weather = [mainWeather objectForKey:@"description"];
             
             NSDate *date = [NSDate date];
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init] ;

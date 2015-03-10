@@ -30,8 +30,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="---" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xl-sb-uKF">
-                                <rect key="frame" x="9" y="455" width="315" height="21"/>
+                                <rect key="frame" x="9" y="496" width="315" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="---" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0s-2C-PrV">
+                                <rect key="frame" x="9" y="449" width="315" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -58,6 +64,7 @@
                     <connections>
                         <outlet property="labelDate" destination="3xl-sb-uKF" id="xmz-8V-Cmk"/>
                         <outlet property="labelTemperature" destination="vvc-GB-C8f" id="sHO-qJ-pwa"/>
+                        <outlet property="labelWeather" destination="f0s-2C-PrV" id="VuM-W8-Hir"/>
                         <outlet property="tableCity" destination="dAH-Ln-fvh" id="bqd-Ab-zvM"/>
                     </connections>
                 </viewController>

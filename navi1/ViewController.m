@@ -10,10 +10,12 @@
 
 @interface ViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *labelTemperature;
-@property (weak, nonatomic) IBOutlet UILabel *labelDate;
 @property (strong, nonatomic) NSArray *tableData;
 @property (weak, nonatomic) IBOutlet UITableView *tableCity;
+@property (weak, nonatomic) IBOutlet UILabel *labelTemperature;
+@property (weak, nonatomic) IBOutlet UILabel *labelDate;
+
+@property (weak, nonatomic) IBOutlet UILabel *labelWeather;
 
 
 @end
@@ -47,9 +49,9 @@
     newCityClass4.nameCity = @"Кременчуг";
     newCityClass4.idCity=@"704147";
     [ newCityClass4 getWeather:0];
-
-  
- 
+    
+    
+    
     
     // Initialize table data
     //    self.tableData = [NSArray arrayWithObjects:@"Киев", @"Харьков", @"Днепропетровск", @"Кременчуг",nil];
@@ -104,6 +106,7 @@
     //[ tclass getWeather:0]; //get weather
     self.labelTemperature.text = [NSString stringWithFormat:@"%@%@C",tclass.tempCity,@"\u00B0"];
     self.labelDate.text = tclass.dateTemp;
+    self.labelWeather.text  = tclass.weather;
     
 }
 
