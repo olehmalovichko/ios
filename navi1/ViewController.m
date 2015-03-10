@@ -71,6 +71,7 @@
     
     //    cell.textLabel.text = [self.tableData objectAtIndex:indexPath.row];
     CityClass *tclass = [self.tableData objectAtIndex:indexPath.row];
+    [ tclass getWeather:0];
     cell.textLabel.text =  [NSString stringWithFormat:@"%@  %@%@C",tclass.nameCity,tclass.tempCity,@"\u00B0" ];
     cell.imageView.image = [ UIImage imageNamed:@"weather.jpg"];
     
@@ -100,6 +101,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     CityClass *tclass = [self.tableData objectAtIndex:indexPath.row];
+    //[ tclass getWeather:0]; //get weather
     self.labelTemperature.text = [NSString stringWithFormat:@"%@%@C",tclass.tempCity,@"\u00B0"];
     self.labelDate.text = tclass.dateTemp;
     
