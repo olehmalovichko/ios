@@ -42,11 +42,14 @@
             
             NSDictionary *mainDetails = [dict objectForKey:@"main"];
             self.tempCity = [mainDetails objectForKey:@"temp"] ;
-       
+            
             NSArray *arweather = [dict objectForKey:@"weather"];
             self.weather = [NSString stringWithFormat:@"%@",[arweather valueForKey:@"description"]];
-            NSLog(@"description:%@",self.weather);
+            self.icon = [NSString stringWithFormat:@"%@",[arweather valueForKey:@"icon"]];
+            //self.icon =  [self.icon componentsSeparatedByString:@"("];
             
+            NSLog(@"description:%@",self.weather);
+            NSLog(@"icon:%@",self.icon);
             
             NSDate *date = [NSDate date];
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init] ;
@@ -65,7 +68,7 @@
         }
         
         
-    } //if 
+    } //if
     
     return (0);
 }
