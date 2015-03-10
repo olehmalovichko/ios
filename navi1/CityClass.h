@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString *idCity;
 @property (nonatomic, strong) NSString *tempCity;
 @property (nonatomic, strong) NSString *dateTemp;
+@property (nonatomic, strong) NSString *weather;
 
 - (BOOL)getWeather: (int)idcity;
 

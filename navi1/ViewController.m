@@ -11,8 +11,10 @@
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *labelTemperature;
+@property (weak, nonatomic) IBOutlet UILabel *labelDate;
 @property (strong, nonatomic) NSArray *tableData;
 @property (weak, nonatomic) IBOutlet UITableView *tableCity;
+
 
 @end
 
@@ -24,32 +26,33 @@
     [super viewDidLoad];
     NSLog(@"start");
     
+    
+    
     CityClass *newCityClass = [[CityClass alloc]init];
     newCityClass.nameCity = @"Киев";
     newCityClass.idCity=@"696050";
     [ newCityClass getWeather:0];
-
+    
     CityClass *newCityClass2 = [[CityClass alloc]init];
     newCityClass2.nameCity = @"Харьков";
     newCityClass2.idCity=@"706483";
     [ newCityClass2 getWeather:0];
-
+    
     CityClass *newCityClass3 = [[CityClass alloc]init];
     newCityClass3.nameCity = @"Днепропетровск";
     newCityClass3.idCity=@"709930";
     [ newCityClass3 getWeather:0];
-
+    
     CityClass *newCityClass4 = [[CityClass alloc]init];
     newCityClass4.nameCity = @"Кременчуг";
     newCityClass4.idCity=@"704147";
     [ newCityClass4 getWeather:0];
 
-       
+  
+ 
     
     // Initialize table data
-    // @["2", "3"];
-    
-//    self.tableData = [NSArray arrayWithObjects:@"Киев", @"Харьков", @"Днепропетровск", @"Кременчуг",nil];
+    //    self.tableData = [NSArray arrayWithObjects:@"Киев", @"Харьков", @"Днепропетровск", @"Кременчуг",nil];
     self.tableData = @[newCityClass,newCityClass2,newCityClass3,newCityClass4];
     self.tableCity.dataSource = self;
     self.tableCity.delegate = self;
@@ -66,7 +69,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-//    cell.textLabel.text = [self.tableData objectAtIndex:indexPath.row];
+    //    cell.textLabel.text = [self.tableData objectAtIndex:indexPath.row];
     CityClass *tclass = [self.tableData objectAtIndex:indexPath.row];
     cell.textLabel.text =  [NSString stringWithFormat:@"%@  %@%@C",tclass.nameCity,tclass.tempCity,@"\u00B0" ];
     cell.imageView.image = [ UIImage imageNamed:@"weather.jpg"];
@@ -96,8 +99,9 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-     CityClass *tclass = [self.tableData objectAtIndex:indexPath.row];
-     self.labelTemperature.text = [NSString stringWithFormat:@"%@%@",tclass.tempCity,@"\u00B0"];
+    CityClass *tclass = [self.tableData objectAtIndex:indexPath.row];
+    self.labelTemperature.text = [NSString stringWithFormat:@"%@%@C",tclass.tempCity,@"\u00B0"];
+    self.labelDate.text = tclass.dateTemp;
     
 }
 
