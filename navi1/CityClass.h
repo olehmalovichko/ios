@@ -17,6 +17,6 @@
 @property (nonatomic, strong) NSString *weather;
 @property (nonatomic, strong) NSString *icon;
 
-- (BOOL)getWeather: (int)idcity;
+- (BOOL)getWeather;
 
 @end

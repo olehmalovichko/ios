@@ -12,11 +12,11 @@
 
 
 
-- (BOOL)getWeather: (int)idcity{
+- (BOOL)getWeather {
     
     //http://api.openweathermap.org/data/2.5/weather?id=696050&units=metric&lang=ru
     
-    NSString *sURL = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?id=%@&units=metric&lang=en",self.idCity];
+    NSString *sURL = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?id=%@&units=metric&lang=ru",self.idCity];
     
     NSData *allCoursesData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:sURL]];
     
@@ -44,9 +44,9 @@
             self.tempCity = [mainDetails objectForKey:@"temp"] ;
             
             NSArray *arweather = [dict objectForKey:@"weather"];
-            self.weather = [NSString stringWithFormat:@"%@",[arweather valueForKey:@"description"]];
-            self.icon = [NSString stringWithFormat:@"%@",[arweather valueForKey:@"icon"]];
-            //self.icon =  [self.icon componentsSeparatedByString:@"("];
+            NSDictionary *weather = arweather.lastObject;
+            self.weather = weather[@"description"];
+            self.icon = [weather valueForKey:@"icon"];
             
             NSLog(@"description:%@",self.weather);
             NSLog(@"icon:%@",self.icon);
@@ -70,7 +70,7 @@
         
     } //if
     
-    return (0);
+    return NO;
 }
 
 

@@ -28,27 +28,26 @@
     [super viewDidLoad];
     NSLog(@"start");
     
-    
-    
+    //
     CityClass *newCityClass = [[CityClass alloc]init];
     newCityClass.nameCity = @"Киев";
     newCityClass.idCity=@"696050";
-    [ newCityClass getWeather:0];
+    [newCityClass getWeather];
     
     CityClass *newCityClass2 = [[CityClass alloc]init];
     newCityClass2.nameCity = @"Харьков";
     newCityClass2.idCity=@"706483";
-    [ newCityClass2 getWeather:0];
+    [newCityClass2 getWeather];
     
     CityClass *newCityClass3 = [[CityClass alloc]init];
     newCityClass3.nameCity = @"Днепропетровск";
     newCityClass3.idCity=@"709930";
-    [ newCityClass3 getWeather:0];
+    [newCityClass3 getWeather];
     
-    CityClass *newCityClass4 = [[CityClass alloc]init];
+    CityClass *newCityClass4 = [CityClass new];
     newCityClass4.nameCity = @"Кременчуг";
     newCityClass4.idCity=@"704147";
-    [ newCityClass4 getWeather:0];
+    [newCityClass4 getWeather];
     
     
     
@@ -73,7 +72,7 @@
     
     //    cell.textLabel.text = [self.tableData objectAtIndex:indexPath.row];
     CityClass *tclass = [self.tableData objectAtIndex:indexPath.row];
-    [ tclass getWeather:0];
+    [tclass getWeather];
     cell.textLabel.text =  [NSString stringWithFormat:@"%@  %@%@C",tclass.nameCity,tclass.tempCity,@"\u00B0" ];
     cell.imageView.image = [ UIImage imageNamed:@"weather.jpg"];
     
