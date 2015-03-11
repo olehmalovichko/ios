@@ -10,13 +10,17 @@
 
 @interface WeatherCityVC ()
 
+@property (strong, nonatomic) IBOutlet UILabel *labelCityName;
+
 @end
 
 @implementation WeatherCityVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.labelCityName.text = self.CityName;
     // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning {

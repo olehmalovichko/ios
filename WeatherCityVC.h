@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface WeatherCityVC : UIViewController
+@property (strong, nonatomic) NSString *CityName;
+
+
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "WeatherCityVC.h"
+
 
 @interface ViewController ()
 
@@ -14,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableCity;
 @property (weak, nonatomic) IBOutlet UILabel *labelTemperature;
 @property (weak, nonatomic) IBOutlet UILabel *labelDate;
-
 @property (weak, nonatomic) IBOutlet UILabel *labelWeather;
 
 
@@ -83,6 +84,8 @@
     NSData* data = [NSData dataWithContentsOfURL:url];
     //cell.imageView.image = [ UIImage imageNamed:@"weather.jpg"];
     cell.imageView.image = [UIImage imageWithData:data];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
     
     return cell;
 }
@@ -99,13 +102,13 @@
     // self.selectedIndexPath = indexPath;
     //  [tableView reloadData];
     
-    for (UITableViewCell *cell in [tableView visibleCells]) {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-    
+//    for (UITableViewCell *cell in [tableView visibleCells]) {
+//        cell.accessoryType = UITableViewCellAccessoryNone;
+//    }
+//    
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    
+//    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     CityClass *tclass = [self.tableData objectAtIndex:indexPath.row];
@@ -114,9 +117,16 @@
     self.labelDate.text = tclass.dateTemp;
     self.labelWeather.text  = tclass.weather;
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *testVC = [storyboard instantiateViewControllerWithIdentifier:@"CityVC"];
-    [self.navigationController pushViewController:testVC animated:YES];
+    UIStoryboard *storyBoard = [self storyboard];
+    WeatherCityVC *weatherCityVC = [storyBoard instantiateViewControllerWithIdentifier:@"WeatherCityVC"];
+    //
+    //weatherCityVC.labelCityName.text  = @"7777";
+    weatherCityVC.CityName = tclass.nameCity;
+//    weatherCityVC.labelCityName.text = tclass.nameCity;
+    NSLog(@"city: %@",tclass.nameCity);
+    [self showViewController:weatherCityVC sender:self];
+//    [self.navigationController pushViewController:WeatherCityVC animated:YES];
+
     
     
 }
