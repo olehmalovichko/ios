@@ -43,10 +43,10 @@
             NSDictionary *mainDetails = [dict objectForKey:@"main"];
             self.tempCity = [mainDetails objectForKey:@"temp"] ;
             
-            NSArray *arweather = [dict objectForKey:@"weather"];
-            NSDictionary *weather = arweather.lastObject;
+            NSArray *Weather = [dict objectForKey:@"weather"];
+            NSDictionary *weather = Weather.lastObject;
             self.weather = weather[@"description"];
-            self.icon = [weather valueForKey:@"icon"];
+            self.icon = weather[@"icon"];
             
             NSLog(@"description:%@",self.weather);
             NSLog(@"icon:%@",self.icon);
