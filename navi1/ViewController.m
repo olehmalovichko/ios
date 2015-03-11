@@ -114,6 +114,11 @@
     self.labelDate.text = tclass.dateTemp;
     self.labelWeather.text  = tclass.weather;
     
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *testVC = [storyboard instantiateViewControllerWithIdentifier:@"CityVC"];
+    [self.navigationController pushViewController:testVC animated:YES];
+    
+    
 }
 
 @end
