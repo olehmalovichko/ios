@@ -72,8 +72,11 @@
     
     //    cell.textLabel.text = [self.tableData objectAtIndex:indexPath.row];
     CityClass *tclass = [self.tableData objectAtIndex:indexPath.row];
+    
     [tclass getWeather];
+    
     cell.textLabel.text =  [NSString stringWithFormat:@"%@  %@%@C",tclass.nameCity,tclass.tempCity,@"\u00B0" ];
+    
      //http://openweathermap.org/img/w/10d.png
     NSString *ImageUrl = [NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png",tclass.icon];
     NSURL* url = [NSURL URLWithString:ImageUrl];
