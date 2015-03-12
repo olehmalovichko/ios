@@ -58,6 +58,12 @@
             self.dateTemp = [dateFormatter stringFromDate:date];
             
             NSLog(@"%@  %@", self.nameCity,self.tempCity);
+
+            
+            
+            NSString *ImageUrl = [NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png",self.icon];
+            NSURL* url = [NSURL URLWithString:ImageUrl];
+            self.imageWeather = [NSData dataWithContentsOfURL:url];
             
             //        NSLog(@"temp: %@",[mainDetails objectForKey:@"temp"]);
             //        NSLog(@"humidity: %@",[mainDetails objectForKey:@"humidity"]);

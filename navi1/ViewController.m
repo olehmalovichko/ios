@@ -89,11 +89,13 @@
     cell.textLabel.text =  [NSString stringWithFormat:@"%@  %@%@C",tclass.nameCity,tclass.tempCity,@"\u00B0" ];
     
     //http://openweathermap.org/img/w/10d.png
-    NSString *ImageUrl = [NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png",tclass.icon];
-    NSURL* url = [NSURL URLWithString:ImageUrl];
-    NSData* data = [NSData dataWithContentsOfURL:url];
+    //    NSString *ImageUrl = [NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png",tclass.icon];
+    //    NSURL* url = [NSURL URLWithString:ImageUrl];
+    //    NSData* data = [NSData dataWithContentsOfURL:url];
     //cell.imageView.image = [ UIImage imageNamed:@"weather.jpg"];
-    cell.imageView.image = [UIImage imageWithData:data];
+    //cell.imageView.image = [UIImage imageWithData:data];
+    cell.imageView.image = [UIImage imageWithData:tclass.imageWeather];
+    
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     

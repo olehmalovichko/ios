@@ -20,8 +20,9 @@
     [super viewDidLoad];
     self.labelCityName.text = self.city.nameCity;
     self.labelTempCity.text = [NSString stringWithFormat:@"%@%@C", self.city.tempCity,@"\u00B0"];
-    self.labelData.text = self.city.dateTemp;
-    
+    self.labelData.text = [NSString stringWithFormat:@"обновлено: %@",self.city.dateTemp];
+    self.labelWeather.text = self.city.weather;
+    self.imageWeather.image  = [UIImage imageWithData:self.city.imageWeather];
     
     
     NSLog(@"city2: %@",self.city.nameCity);
