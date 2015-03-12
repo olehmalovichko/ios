@@ -60,6 +60,16 @@
     self.tableCity.delegate = self;
 }
 
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
+
 #pragma mark - UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -78,14 +88,14 @@
     
     cell.textLabel.text =  [NSString stringWithFormat:@"%@  %@%@C",tclass.nameCity,tclass.tempCity,@"\u00B0" ];
     
-     //http://openweathermap.org/img/w/10d.png
+    //http://openweathermap.org/img/w/10d.png
     NSString *ImageUrl = [NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png",tclass.icon];
     NSURL* url = [NSURL URLWithString:ImageUrl];
     NSData* data = [NSData dataWithContentsOfURL:url];
     //cell.imageView.image = [ UIImage imageNamed:@"weather.jpg"];
     cell.imageView.image = [UIImage imageWithData:data];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
+    
     
     return cell;
 }
@@ -102,13 +112,13 @@
     // self.selectedIndexPath = indexPath;
     //  [tableView reloadData];
     
-//    for (UITableViewCell *cell in [tableView visibleCells]) {
-//        cell.accessoryType = UITableViewCellAccessoryNone;
-//    }
-//    
+    //    for (UITableViewCell *cell in [tableView visibleCells]) {
+    //        cell.accessoryType = UITableViewCellAccessoryNone;
+    //    }
+    //
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-
+    //    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     CityClass *tclass = [self.tableData objectAtIndex:indexPath.row];
@@ -117,18 +127,17 @@
     self.labelDate.text = tclass.dateTemp;
     self.labelWeather.text  = tclass.weather;
     
+    //    [self performSegueWithIdentifier:@"showDetails" sender:self];
+    
     UIStoryboard *storyBoard = [self storyboard];
     WeatherCityVC *weatherCityVC = [storyBoard instantiateViewControllerWithIdentifier:@"WeatherCityVC"];
     //
     //weatherCityVC.labelCityName.text  = @"7777";
-    weatherCityVC.CityName = tclass.nameCity;
-//    weatherCityVC.labelCityName.text = tclass.nameCity;
+    //    weatherCityVC.CityName = tclass.nameCity;
+    //    weatherCityVC.labelCityName.text = tclass.nameCity;
     NSLog(@"city: %@",tclass.nameCity);
     [self showViewController:weatherCityVC sender:self];
-//    [self.navigationController pushViewController:WeatherCityVC animated:YES];
-
-    
-    
+    //    [self.navigationController pushViewController:WeatherCityVC animated:YES];
 }
 
 @end

@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CityClass.h"
 
 @interface WeatherCityVC : UIViewController
-@property (strong, nonatomic) NSString *CityName;
 
-
+@property (strong, nonatomic) CityClass *city;
 
 @end

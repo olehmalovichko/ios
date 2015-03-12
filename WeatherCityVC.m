@@ -10,7 +10,7 @@
 
 @interface WeatherCityVC ()
 
-@property (strong, nonatomic) IBOutlet UILabel *labelCityName;
+@property (weak, nonatomic) IBOutlet UILabel *labelCityName;
 
 @end
 
@@ -18,15 +18,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.labelCityName.text = self.CityName;
+    self.labelCityName.text = self.city.nameCity;
+    NSLog(@"city2: %@",self.city.nameCity);
     // Do any additional setup after loading the view.
-    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 /*
 #pragma mark - Navigation

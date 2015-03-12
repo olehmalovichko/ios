@@ -95,10 +95,12 @@
 				84F485901AA9D6A30019CC75 /* weather.jpg */,
 				84F4856E1AA996830019CC75 /* AppDelegate.h */,
 				84F4856F1AA996830019CC75 /* AppDelegate.m */,
+				843D55311AB01DB900EEB236 /* WeatherCityVC.h */,
+				843D55321AB01DB900EEB236 /* WeatherCityVC.m */,
 				84F485711AA996830019CC75 /* ViewController.h */,
 				84F485721AA996830019CC75 /* ViewController.m */,
-				84463EDD1AADD85B00025731 /* CityClass.h */,
 				84F485741AA996830019CC75 /* Main.storyboard */,
+				84463EDD1AADD85B00025731 /* CityClass.h */,
 				84463EDE1AADD85B00025731 /* CityClass.m */,
 				84F485771AA996830019CC75 /* Images.xcassets */,
 				84F485791AA996830019CC75 /* LaunchScreen.xib */,
@@ -112,8 +114,6 @@
 		84F4856A1AA996830019CC75 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				843D55311AB01DB900EEB236 /* WeatherCityVC.h */,
-				843D55321AB01DB900EEB236 /* WeatherCityVC.m */,
 				84F4856B1AA996830019CC75 /* Info.plist */,
 				84F4856C1AA996830019CC75 /* main.m */,
 			);
