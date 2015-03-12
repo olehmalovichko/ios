@@ -13,4 +13,10 @@
 
 @property (strong, nonatomic) CityClass *city;
 
+@property (weak, nonatomic) IBOutlet UILabel *labelCityName;
+@property (weak, nonatomic) IBOutlet UILabel *labelTempCity;
+@property (weak, nonatomic) IBOutlet UILabel *labelData;
+
+
+
 @end
