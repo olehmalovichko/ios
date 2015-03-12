@@ -7,15 +7,14 @@
 //
 
 #import "CityClass.h"
+#import "DataManager.h"
 
 @implementation CityClass
 
 
 
 - (BOOL)getWeather {
-    
-    //http://api.openweathermap.org/data/2.5/weather?id=696050&units=metric&lang=ru
-    
+
     NSString *sURL = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?id=%@&units=metric&lang=ru",self.idCity];
     
     NSData *allCoursesData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:sURL]];
@@ -58,7 +57,7 @@
             self.dateTemp = [dateFormatter stringFromDate:date];
             
             NSLog(@"%@  %@", self.nameCity,self.tempCity);
-
+            
             
             
             NSString *ImageUrl = [NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png",self.icon];

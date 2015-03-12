@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "WeatherCityVC.h"
-
+#import "DataManager.h"
 
 @interface ViewController ()
 
@@ -27,33 +27,8 @@
     [super viewDidLoad];
     NSLog(@"start");
     
-    //
-    CityClass *newCityClass = [[CityClass alloc]init];
-    newCityClass.nameCity = @"Киев";
-    newCityClass.idCity=@"696050";
-    [newCityClass getWeather];
+    self.tableData = [DataManager allCities];
     
-    CityClass *newCityClass2 = [[CityClass alloc]init];
-    newCityClass2.nameCity = @"Харьков";
-    newCityClass2.idCity=@"706483";
-    [newCityClass2 getWeather];
-    
-    CityClass *newCityClass3 = [[CityClass alloc]init];
-    newCityClass3.nameCity = @"Днепропетровск";
-    newCityClass3.idCity=@"709930";
-    [newCityClass3 getWeather];
-    
-    CityClass *newCityClass4 = [CityClass new];
-    newCityClass4.nameCity = @"Кременчуг";
-    newCityClass4.idCity=@"704147";
-    [newCityClass4 getWeather];
-    
-    
-    
-    
-    // Initialize table data
-    //    self.tableData = [NSArray arrayWithObjects:@"Киев", @"Харьков", @"Днепропетровск", @"Кременчуг",nil];
-    self.tableData = @[newCityClass,newCityClass2,newCityClass3,newCityClass4];
     self.tableCity.dataSource = self;
     self.tableCity.delegate = self;
 }
@@ -116,7 +91,7 @@
     //        cell.accessoryType = UITableViewCellAccessoryNone;
     //    }
     //
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     //    cell.accessoryType = UITableViewCellAccessoryCheckmark;
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -127,7 +102,7 @@
     //    self.labelDate.text = tclass.dateTemp;
     //    self.labelWeather.text  = tclass.weather;
     //
-    //    [self performSegueWithIdentifier:@"showDetails" sender:self];
+//        [self performSegueWithIdentifier:@"showDetails" sender:self];
     
     UIStoryboard *storyBoard = [self storyboard];
     WeatherCityVC *weatherCityVC = [storyBoard instantiateViewControllerWithIdentifier:@"WeatherCityVC"];

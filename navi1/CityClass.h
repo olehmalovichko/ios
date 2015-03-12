@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface CityClass : NSObject
 
@@ -17,6 +18,7 @@
 @property (nonatomic, strong) NSString *weather;
 @property (nonatomic, strong) NSString *icon;
 @property (nonatomic, strong) NSData   *imageWeather;
+@property (nonatomic, strong) UIImage *image; // FIXME пофиксить
 
 - (BOOL)getWeather;
 
