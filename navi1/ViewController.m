@@ -135,9 +135,13 @@
     //weatherCityVC.labelCityName.text  = @"7777";
     //    weatherCityVC.CityName = tclass.nameCity;
     //    weatherCityVC.labelCityName.text = tclass.nameCity;
+    weatherCityVC.city = tclass;
+    
     NSLog(@"city: %@",tclass.nameCity);
     [self showViewController:weatherCityVC sender:self];
+    
     //    [self.navigationController pushViewController:WeatherCityVC animated:YES];
+    
 }
 
 @end

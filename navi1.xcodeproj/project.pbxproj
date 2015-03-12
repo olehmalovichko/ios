@@ -71,6 +71,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		842120F51AB18B0F002B2DFD /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				84463EDD1AADD85B00025731 /* CityClass.h */,
+				84463EDE1AADD85B00025731 /* CityClass.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		842120F61AB18B39002B2DFD /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				84F485901AA9D6A30019CC75 /* weather.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		842120F71AB18B51002B2DFD /* SettingsVC */ = {
+			isa = PBXGroup;
+			children = (
+				84C0D6851AAA1CE80040DC3A /* SettingsVC.m */,
+				84C0D6841AAA1CE80040DC3A /* SettingsVC.h */,
+			);
+			name = SettingsVC;
+			sourceTree = "<group>";
+		};
+		842120F81AB18B71002B2DFD /* WeatherCityVC */ = {
+			isa = PBXGroup;
+			children = (
+				843D55311AB01DB900EEB236 /* WeatherCityVC.h */,
+				843D55321AB01DB900EEB236 /* WeatherCityVC.m */,
+			);
+			name = WeatherCityVC;
+			sourceTree = "<group>";
+		};
 		84F4855E1AA996830019CC75 = {
 			isa = PBXGroup;
 			children = (
@@ -92,21 +127,18 @@
 		84F485691AA996830019CC75 /* navi1 */ = {
 			isa = PBXGroup;
 			children = (
-				84F485901AA9D6A30019CC75 /* weather.jpg */,
+				842120F61AB18B39002B2DFD /* Images */,
+				842120F71AB18B51002B2DFD /* SettingsVC */,
+				842120F81AB18B71002B2DFD /* WeatherCityVC */,
+				842120F51AB18B0F002B2DFD /* Classes */,
 				84F4856E1AA996830019CC75 /* AppDelegate.h */,
 				84F4856F1AA996830019CC75 /* AppDelegate.m */,
-				843D55311AB01DB900EEB236 /* WeatherCityVC.h */,
-				843D55321AB01DB900EEB236 /* WeatherCityVC.m */,
 				84F485711AA996830019CC75 /* ViewController.h */,
 				84F485721AA996830019CC75 /* ViewController.m */,
 				84F485741AA996830019CC75 /* Main.storyboard */,
-				84463EDD1AADD85B00025731 /* CityClass.h */,
-				84463EDE1AADD85B00025731 /* CityClass.m */,
 				84F485771AA996830019CC75 /* Images.xcassets */,
 				84F485791AA996830019CC75 /* LaunchScreen.xib */,
 				84F4856A1AA996830019CC75 /* Supporting Files */,
-				84C0D6851AAA1CE80040DC3A /* SettingsVC.m */,
-				84C0D6841AAA1CE80040DC3A /* SettingsVC.h */,
 			);
 			path = navi1;
 			sourceTree = "<group>";

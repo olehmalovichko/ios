@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.labelCityName.text = self.city.nameCity;
+   self.labelCityName.text = self.city.nameCity;
     NSLog(@"city2: %@",self.city.nameCity);
     // Do any additional setup after loading the view.
 }
