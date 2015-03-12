@@ -14,9 +14,7 @@
 
 @property (strong, nonatomic) NSArray *tableData;
 @property (weak, nonatomic) IBOutlet UITableView *tableCity;
-@property (weak, nonatomic) IBOutlet UILabel *labelTemperature;
-@property (weak, nonatomic) IBOutlet UILabel *labelDate;
-@property (weak, nonatomic) IBOutlet UILabel *labelWeather;
+
 
 
 @end
@@ -125,10 +123,10 @@
     
     CityClass *tclass = [self.tableData objectAtIndex:indexPath.row];
     //[ tclass getWeather:0]; //get weather
-    self.labelTemperature.text = [NSString stringWithFormat:@"%@%@C",tclass.tempCity,@"\u00B0"];
-    self.labelDate.text = tclass.dateTemp;
-    self.labelWeather.text  = tclass.weather;
-    
+    //    self.labelTemperature.text = [NSString stringWithFormat:@"%@%@C",tclass.tempCity,@"\u00B0"];
+    //    self.labelDate.text = tclass.dateTemp;
+    //    self.labelWeather.text  = tclass.weather;
+    //
     //    [self performSegueWithIdentifier:@"showDetails" sender:self];
     
     UIStoryboard *storyBoard = [self storyboard];
