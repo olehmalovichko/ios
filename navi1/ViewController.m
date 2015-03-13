@@ -25,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"start");
+    NSLog(@"---start---");
     
     self.tableData = [DataManager allCities];
     
@@ -64,7 +64,7 @@
     //    cell.textLabel.text = [self.tableData objectAtIndex:indexPath.row];
     CityClass *tclass = [self.tableData objectAtIndex:indexPath.row];
     
-    [tclass getWeather];
+ //   [tclass getWeather];
     
     cell.textLabel.text =  [NSString stringWithFormat:@"%@  %@%@C",tclass.nameCity,tclass.tempCity,@"\u00B0" ];
     
@@ -74,8 +74,8 @@
     //    NSData* data = [NSData dataWithContentsOfURL:url];
     //cell.imageView.image = [ UIImage imageNamed:@"weather.jpg"];
     //cell.imageView.image = [UIImage imageWithData:data];
+
     cell.imageView.image = [UIImage imageWithData:tclass.imageWeather];
-    
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     

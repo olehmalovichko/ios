@@ -18,7 +18,7 @@
 @property (nonatomic, strong) NSString *weather;
 @property (nonatomic, strong) NSString *icon;
 @property (nonatomic, strong) NSData   *imageWeather;
-//@property (nonatomic, strong) UIImage *image; // FIXME пофиксить
+@property (nonatomic, strong) UIImage *image; // FIXME пофиксить
 
 - (BOOL)getWeather;
 

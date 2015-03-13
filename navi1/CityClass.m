@@ -14,19 +14,33 @@
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
     //encode properties,variables, etc...
-    [encoder encodeObject:self.nameCity forKey:@"name"];
+    [encoder encodeObject:self.nameCity forKey:@"nameCity"];
+    [encoder encodeObject:self.idCity forKey:@"idCity"];
+    [encoder encodeObject:self.tempCity forKey:@"tempCity"];
+    [encoder encodeObject:self.dateTemp forKey:@"dateTemp"];
+    [encoder encodeObject:self.weather forKey:@"weather"];
+    [encoder encodeObject:self.imageWeather forKey:@"imageWeather"];
+    [encoder encodeObject:self.image forKey:@"image"];
+    [encoder encodeObject:self.icon forKey:@"icon"];
+    
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
     if((self = [super init])) {
         //decode properties,variables,etc....
-        self.nameCity = [decoder decodeObjectForKey:@"name"];
+        self.nameCity = [decoder decodeObjectForKey:@"nameCity"];
+        self.idCity = [decoder decodeObjectForKey:@"idCity"];
+        self.tempCity = [decoder decodeObjectForKey:@"tempCity"];
+        self.dateTemp = [decoder decodeObjectForKey:@"dateTemp"];
+        self.weather = [decoder decodeObjectForKey:@"weather"];
+        self.imageWeather = [decoder decodeObjectForKey:@"imageWeather"];
+        self.image = [decoder decodeObjectForKey:@"image"];
     }
     return self;
 }
 
 - (BOOL)getWeather {
-
+    
     NSString *sURL = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?id=%@&units=metric&lang=ru",self.idCity];
     
     NSData *allCoursesData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:sURL]];
