@@ -12,9 +12,9 @@
 
 @interface ViewController ()
 
-@property (strong, nonatomic) NSArray *tableData;
-@property (weak, nonatomic) IBOutlet UITableView *tableCity;
 
+@property (weak, nonatomic) IBOutlet UITableView *tableCity;
+@property (strong, nonatomic) NSArray *tableData;
 
 
 @end
@@ -32,9 +32,9 @@
     self.tableCity.dataSource = self;
     self.tableCity.delegate = self;
     
-  
-//    [DataManager  saveCustomObject:newCityClass1 key:@"city1"];
-//    CityClass *test =  [DataManager loadcustomObjectWithKey:@"city1"];
+    
+    //    [DataManager  saveCustomObject:newCityClass1 key:@"city1"];
+    //    CityClass *test =  [DataManager loadcustomObjectWithKey:@"city1"];
     
     
     
@@ -64,7 +64,7 @@
     //    cell.textLabel.text = [self.tableData objectAtIndex:indexPath.row];
     CityClass *tclass = [self.tableData objectAtIndex:indexPath.row];
     
- //   [tclass getWeather];
+    //   [tclass getWeather];
     
     cell.textLabel.text =  [NSString stringWithFormat:@"%@  %@%@C",tclass.nameCity,tclass.tempCity,@"\u00B0" ];
     
@@ -74,7 +74,7 @@
     //    NSData* data = [NSData dataWithContentsOfURL:url];
     //cell.imageView.image = [ UIImage imageNamed:@"weather.jpg"];
     //cell.imageView.image = [UIImage imageWithData:data];
-
+    
     cell.imageView.image = [UIImage imageWithData:tclass.imageWeather];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
@@ -98,7 +98,7 @@
     //        cell.accessoryType = UITableViewCellAccessoryNone;
     //    }
     //
-//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     //    cell.accessoryType = UITableViewCellAccessoryCheckmark;
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -109,7 +109,7 @@
     //    self.labelDate.text = tclass.dateTemp;
     //    self.labelWeather.text  = tclass.weather;
     //
-//        [self performSegueWithIdentifier:@"showDetails" sender:self];
+    //        [self performSegueWithIdentifier:@"showDetails" sender:self];
     
     UIStoryboard *storyBoard = [self storyboard];
     WeatherCityVC *weatherCityVC = [storyBoard instantiateViewControllerWithIdentifier:@"WeatherCityVC"];
@@ -124,6 +124,18 @@
     
     //    [self.navigationController pushViewController:WeatherCityVC animated:YES];
     
+}
+
+- (IBAction)updateWeather:(id)sender {
+    NSLog(@"update weather");
+    
+    //self.tableData
+    
+    for(int i=0; i<self.tableData.count; i++){
+        [self.tableData[i] getWeather] ;
+    }
+    
+    self.tableCity.reloadData;
 }
 
 @end
