@@ -7,18 +7,47 @@
 //
 
 #import "DataManager.h"
+#import "CityClass.h"
+
 
 @implementation DataManager
 
+//save my class
++(void)saveCustomObject:(CityClass *)object key:(NSString *)key {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
+    [prefs setObject:myEncodedObject forKey:key];
+    [prefs synchronize];
+    
+}
+
+//restore my class
++(CityClass *)loadcustomObjectWithKey:(NSString*)key {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSData *myEncodeObject = [prefs objectForKey:key];
+    CityClass *obj = (CityClass *)[NSKeyedUnarchiver unarchiveObjectWithData:myEncodeObject];
+    return obj;
+}
+
 + (NSArray *)allCities {
     
-//    NSUserDefaults - почитать про него, должен хранить в нем все города
+    //    NSUserDefaults - почитать про него, должен хранить в нем все города
     /*
      1 проверяешь лежит ли в NSUSerDefault массив городов
      2 если не лежит, то добавляешь наши стандартные 4 города в него
      3 если что-то лежит в массиве, то просто возвращаем этот массив городов
      */
     
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *result = [userDefaults objectForKey:@"city1"];
+    if ([result length]) {
+        NSLog(@"name = %@",[userDefaults objectForKey:@"name"]);
+    } else {
+        //add to UserDefaults
+        [userDefaults setObject:@"gorod" forKey:@"name"];
+      
+    }
+       
     CityClass *newCityClass = [[CityClass alloc]init];
     newCityClass.nameCity = @"Киев";
     newCityClass.idCity=@"696050";
@@ -39,6 +68,9 @@
     newCityClass4.idCity=@"704147";
     [newCityClass4 getWeather];
     
+    [DataManager saveCustomObject:newCityClass key:@"city1"];
+    CityClass *test =  [DataManager loadcustomObjectWithKey:@"city1"];
+    
     return @[newCityClass,newCityClass2,newCityClass3,newCityClass4];
 }
 
@@ -46,11 +78,13 @@
     /*
      1 добавляем город в массив с помощью NSUserDefaults
      */
+    
+    
 }
 
 + (CityClass *)requestCityWithId:(NSString *)identifier {
     //http://api.openweathermap.org/data/2.5/weather?id=696050&units=metric&lang=ru
-
+    
     NSString *url = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?id=%@&units=metric&lang=ru", identifier];
     
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:url]];

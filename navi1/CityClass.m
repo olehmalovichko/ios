@@ -12,6 +12,18 @@
 @implementation CityClass
 
 
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    //encode properties,variables, etc...
+    [encoder encodeObject:self.nameCity forKey:@"name"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if((self = [super init])) {
+        //decode properties,variables,etc....
+        self.nameCity = [decoder decodeObjectForKey:@"name"];
+    }
+    return self;
+}
 
 - (BOOL)getWeather {
 

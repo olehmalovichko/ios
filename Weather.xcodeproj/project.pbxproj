@@ -450,7 +450,7 @@
 				INFOPLIST_FILE = navi1Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = WeatherTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/navi1.app/navi1";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weather.app/Weather";
 			};
 			name = Debug;
 		};
@@ -465,7 +465,7 @@
 				INFOPLIST_FILE = navi1Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = WeatherTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/navi1.app/navi1";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weather.app/Weather";
 			};
 			name = Release;
 		};

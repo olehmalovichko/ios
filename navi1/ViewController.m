@@ -31,6 +31,13 @@
     
     self.tableCity.dataSource = self;
     self.tableCity.delegate = self;
+    
+  
+//    [DataManager  saveCustomObject:newCityClass1 key:@"city1"];
+//    CityClass *test =  [DataManager loadcustomObjectWithKey:@"city1"];
+    
+    
+    
 }
 
 /*
