@@ -13,7 +13,7 @@
 @implementation DataManager
 
 //save my class
-+(void)saveCustomObject:(CityClass *)object key:(NSString *)key {
++ (void)saveCustomObject:(CityClass *)object key:(NSString *)key {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
     [prefs setObject:myEncodedObject forKey:key];
@@ -21,11 +21,18 @@
 }
 
 //restore my class
-+(CityClass *)loadcustomObjectWithKey:(NSString*)key {
++ (CityClass *)loadcustomObjectWithKey:(NSString*)key {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSData *myEncodeObject = [prefs objectForKey:key];
     CityClass *obj = (CityClass *)[NSKeyedUnarchiver unarchiveObjectWithData:myEncodeObject];
     return obj;
+}
+
++ (BOOL)citiesExist {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSData *myEncodeObject = [prefs objectForKey:@"allCities"];
+    NSArray *cities = (NSArray *)[NSKeyedUnarchiver unarchiveObjectWithData:myEncodeObject];
+    return cities;
 }
 
 + (NSArray *)allCities {
@@ -36,32 +43,25 @@
      2 если не лежит, то добавляешь наши стандартные 4 города в него
      3 если что-то лежит в массиве, то просто возвращаем этот массив городов
      */
-    CityClass *newCityClass1 = [CityClass new];
-    CityClass *newCityClass2 = [CityClass new];
-    CityClass *newCityClass3 = [CityClass new];
-    CityClass *newCityClass4 = [CityClass new];
     
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *result = [userDefaults objectForKey:@"city1"];
-    if ([result length]) {
-        NSLog(@"---second start---");
-        newCityClass1 =  [DataManager loadcustomObjectWithKey:@"city1"];
-        newCityClass2 =  [DataManager loadcustomObjectWithKey:@"city2"];
-        newCityClass3 =  [DataManager loadcustomObjectWithKey:@"city3"];
-        newCityClass4 =  [DataManager loadcustomObjectWithKey:@"city4"];
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSData *myEncodeObject = [prefs objectForKey:@"allCities"];
+    NSArray *cities = (NSArray *)[NSKeyedUnarchiver unarchiveObjectWithData:myEncodeObject];
+   
+    if (cities) {
+        return cities;
     } else {
-        //add to UserDefaults
-        NSLog(@"---first start---");
-        //[userDefaults setObject:@"gorod" forKey:@"name"];
+        CityClass *newCityClass1 = [CityClass cityWithId:@"696050" name:@"Киев"];
+        CityClass *newCityClass2 = [CityClass new];
+        CityClass *newCityClass3 = [CityClass new];
+        CityClass *newCityClass4 = [CityClass new];
         
-        newCityClass1.nameCity = @"Киев";
-        newCityClass1.idCity=@"696050";
         [newCityClass1 getWeather];
         
         newCityClass2.nameCity = @"Харьков";
         newCityClass2.idCity=@"706483";
         [newCityClass2 getWeather];
-   
+        
         newCityClass3.nameCity = @"Днепропетровск";
         newCityClass3.idCity=@"709930";
         [newCityClass3 getWeather];
@@ -70,27 +70,29 @@
         newCityClass4.idCity=@"704147";
         [newCityClass4 getWeather];
         
-        [DataManager saveCustomObject:newCityClass1 key:@"city1"];
-        [DataManager saveCustomObject:newCityClass2 key:@"city2"];
-        [DataManager saveCustomObject:newCityClass3 key:@"city3"];
-        [DataManager saveCustomObject:newCityClass4 key:@"city4"];
+        [self addCity:newCityClass1];
+        [self addCity:newCityClass2];
+        [self addCity:newCityClass3];
+        [self addCity:newCityClass4];
         
-        //        NSLog(@"test name = %@",test.nameCity);
-        //        NSLog(@"test idCity = %@",test.idCity);
-        
+        return @[newCityClass1, newCityClass2, newCityClass3, newCityClass4];
     }
-    
-    
-    
-    return @[newCityClass1,newCityClass2,newCityClass3,newCityClass4];
 }
 
 + (void)addCity:(CityClass *)city {
-    /*
-     1 добавляем город в массив с помощью NSUserDefaults
-     */
+    NSMutableArray *cities;
     
+    if ([self citiesExist]) {
+        cities = [NSMutableArray arrayWithArray:[self allCities]];
+    } else {
+        cities = [NSMutableArray array];
+    }
+    [cities addObject:city];
     
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:[NSArray arrayWithArray:cities]];
+    [prefs setObject:myEncodedObject forKey:@"allCities"];
+    [prefs synchronize];
 }
 
 + (CityClass *)requestCityWithId:(NSString *)identifier {

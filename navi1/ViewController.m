@@ -131,11 +131,16 @@
     
     //self.tableData
     
-    for(int i=0; i<self.tableData.count; i++){
-        [self.tableData[i] getWeather] ;
+//    for(int i=0; i<self.tableData.count; i++){
+//        [self.tableData[i] getWeather] ;
+//    }
+    
+    for (CityClass *city in self.tableData) {
+        [city getWeather];
     }
     
-    self.tableCity.reloadData;
+//    self.tableCity.reloadData;
+    [self.tableCity reloadData];
 }
 
 @end

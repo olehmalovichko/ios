@@ -14,7 +14,7 @@
 + (NSArray *)allCities;
 + (void)addCity:(CityClass *)city;
 + (CityClass *)requestCityWithId:(NSString *)identifier;
-+(void)saveCustomObject:(CityClass *)object key:(NSString *)key;
-+(CityClass *)loadcustomObjectWithKey:(NSString*)key;
++ (void)saveCustomObject:(CityClass *)object key:(NSString *)key;
++ (CityClass *)loadcustomObjectWithKey:(NSString*)key;
 
 @end

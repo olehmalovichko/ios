@@ -11,6 +11,12 @@
 
 @implementation CityClass
 
++ (CityClass *)cityWithId:(NSString *)identifier name:(NSString *)name {
+    CityClass *city = [CityClass new];
+    city.idCity = identifier;
+    city.nameCity = name;
+    return city;
+}
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
     //encode properties,variables, etc...
@@ -26,7 +32,8 @@
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
-    if((self = [super init])) {
+    self = [super init];
+    if (self) {
         //decode properties,variables,etc....
         self.nameCity = [decoder decodeObjectForKey:@"nameCity"];
         self.idCity = [decoder decodeObjectForKey:@"idCity"];

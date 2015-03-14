@@ -22,4 +22,6 @@
 
 - (BOOL)getWeather;
 
++ (CityClass *)cityWithId:(NSString *)identifier name:(NSString *)name;
+
 @end
