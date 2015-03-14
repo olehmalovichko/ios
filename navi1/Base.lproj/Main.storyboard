@@ -82,8 +82,8 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lt8-c5-B7Q">
-                                <rect key="frame" x="263" y="111" width="95" height="30"/>
-                                <state key="normal" title="Add">
+                                <rect key="frame" x="236" y="111" width="122" height="30"/>
+                                <state key="normal" title="Добавить">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>

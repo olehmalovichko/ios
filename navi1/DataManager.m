@@ -8,24 +8,17 @@
 
 #import "DataManager.h"
 #import "CityClass.h"
+#import "ViewController.h"
 
 
 @implementation DataManager
 
-//save my class
-+ (void)saveCustomObject:(CityClass *)object key:(NSString *)key {
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
-    [prefs setObject:myEncodedObject forKey:key];
-    [prefs synchronize];   
-}
 
-//restore my class
-+ (CityClass *)loadcustomObjectWithKey:(NSString*)key {
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    NSData *myEncodeObject = [prefs objectForKey:key];
-    CityClass *obj = (CityClass *)[NSKeyedUnarchiver unarchiveObjectWithData:myEncodeObject];
-    return obj;
++ (NSArray *)arrayByRemovingObject:(id)obj val2:(NSUInteger)row {
+  //  if (!obj) return [self copy]; // copy because all array* methods return new arrays
+    NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:obj];
+    [mutableArray removeObjectAtIndex:row];
+    return [NSArray arrayWithArray:mutableArray];
 }
 
 + (BOOL)citiesExist {
@@ -48,7 +41,7 @@
     NSData *myEncodeObject = [prefs objectForKey:@"allCities"];
     NSArray *cities = (NSArray *)[NSKeyedUnarchiver unarchiveObjectWithData:myEncodeObject];
    
-    if (cities) {
+    if (cities && cities.count) {
         return cities;
     } else {
         CityClass *newCityClass1 = [CityClass cityWithId:@"696050" name:@"Киев"] ;
@@ -72,19 +65,37 @@
 
 //add City and save into NSUserDefaults
 + (void)addCity:(CityClass *)city {
-    NSMutableArray *cities;
-    
-    if ([self citiesExist]) {
-        cities = [NSMutableArray arrayWithArray:[self allCities]];
-    } else {
-        cities = [NSMutableArray array];
-    }
-    [cities addObject:city];
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:[NSArray arrayWithArray:cities]];
+    NSData *myEncodeObject = [prefs objectForKey:@"allCities"];
+    NSArray *cities = (NSArray *)[NSKeyedUnarchiver unarchiveObjectWithData:myEncodeObject];
+    
+    
+    NSMutableArray *citiesm = [NSMutableArray arrayWithArray:cities];
+
+    
+//    if ([self citiesExist]) {
+//        cities = [NSMutableArray arrayWithArray:[self allCities]];
+//    } else {
+//        cities = [NSMutableArray array];
+//    }
+    [citiesm addObject:city];
+
+    NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:[NSArray arrayWithArray:citiesm]];
     [prefs setObject:myEncodedObject forKey:@"allCities"];
     [prefs synchronize];
+}
+
++ (void)deleteCity:(CityClass *)city {
+    // FIXME: удаление города реализовать!
+    
+    NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[self allCities]];
+    [mutableArray removeObject:city];
+     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:[NSArray arrayWithArray:mutableArray]];
+    [prefs setObject:myEncodedObject forKey:@"allCities"];
+    [prefs synchronize];
+
 }
 
 // get JSON data

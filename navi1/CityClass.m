@@ -18,6 +18,16 @@
     return city;
 }
 
+- (BOOL)isEqual:(CityClass *)other {
+    if ([self.idCity isEqualToString:other.idCity]) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+
+
 - (void)encodeWithCoder:(NSCoder *)encoder {
     //encode properties,variables, etc...
     [encoder encodeObject:self.nameCity forKey:@"nameCity"];

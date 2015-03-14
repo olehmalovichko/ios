@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "WeatherCityVC.h"
 #import "DataManager.h"
+#import "CityClass.h"
 
 @interface ViewController ()
 
@@ -76,9 +77,23 @@
     //cell.imageView.image = [UIImage imageWithData:data];
     
     //cell.imageView.image = [UIImage imageWithData:tclass.imageWeather];
+  
+  
+ 
+    //add button
+//    UIButton *deletebtn=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    [deletebtn setFrame:CGRectMake(0,9, 25, 25)];
+//    deletebtn.tag=indexPath.row;
+//    
+//    UIImage *buttonImage = [UIImage imageNamed:@"delete.png"];
+//    [deletebtn setBackgroundImage:buttonImage forState:UIControlStateNormal];
+//    
     cell.imageView.image = tclass.image;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+ //   cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
+//[deletebtn setImage:[UIImage imageNamed:@"delete.png"] forState:UIControlStateNormal];
+//    [deletebtn addTarget:self action:@selector(deleteRow:) forControlEvents:UIControlEventTouchUpInside];
+//    [cell addSubview:deletebtn];
     
     return cell;
 }
@@ -87,7 +102,17 @@
     return self.tableData.count;
 }
 
-
+- (IBAction)deleteRow:(id)sender
+{
+    NSLog(@"deleteRow---.");
+//    // Remove the row from data model
+//    //[self.tableData removeObjectAtIndex:indexPath.row];
+//    //[self.tableData objectAtIndex:indexPath.row]
+// //   CityClass *delCity [self.tableData objectAtIndex:indexPath.row];
+//    NSArray *tempData = [DataManager arrayByRemovingObject:self.tableData];
+//    // Request table view to reload
+//    [self.tableCity reloadData];
+}
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -125,7 +150,27 @@
     
     //    [self.navigationController pushViewController:WeatherCityVC animated:YES];
     
+    
+
 }
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //remove the deleted object from your data source.
+        NSLog(@"remove row %li",(long)indexPath.row);
+//        NSArray *tempData = [DataManager arrayByRemovingObject:self.tableData val2:indexPath.row];
+//        self.tableData = tempData;
+        
+        [DataManager deleteCity:self.tableData[indexPath.row]];
+        self.tableData = [DataManager allCities];
+        [tableView reloadData]; // tell table to refresh now
+    }
+}
+
 
 - (IBAction)updateWeather:(id)sender {
     NSLog(@"update weather");

@@ -13,8 +13,10 @@
 
 + (NSArray *)allCities;
 + (void)addCity:(CityClass *)city;
++ (void)deleteCity:(CityClass *)city;
+
 + (CityClass *)requestCityWithId:(NSString *)identifier;
-+ (void)saveCustomObject:(CityClass *)object key:(NSString *)key;
-+ (CityClass *)loadcustomObjectWithKey:(NSString*)key;
+
++ (NSArray *)arrayByRemovingObject:(id)obj val2:(NSUInteger)row;
 
 @end
