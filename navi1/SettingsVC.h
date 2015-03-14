@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SettingsVC : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *cityText;
 
 @end

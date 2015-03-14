@@ -75,7 +75,8 @@
     //cell.imageView.image = [ UIImage imageNamed:@"weather.jpg"];
     //cell.imageView.image = [UIImage imageWithData:data];
     
-    cell.imageView.image = [UIImage imageWithData:tclass.imageWeather];
+    //cell.imageView.image = [UIImage imageWithData:tclass.imageWeather];
+    cell.imageView.image = tclass.image;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     

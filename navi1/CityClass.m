@@ -25,7 +25,7 @@
     [encoder encodeObject:self.tempCity forKey:@"tempCity"];
     [encoder encodeObject:self.dateTemp forKey:@"dateTemp"];
     [encoder encodeObject:self.weather forKey:@"weather"];
-    [encoder encodeObject:self.imageWeather forKey:@"imageWeather"];
+//    [encoder encodeObject:self.imageWeather forKey:@"imageWeather"];
     [encoder encodeObject:self.image forKey:@"image"];
     [encoder encodeObject:self.icon forKey:@"icon"];
     
@@ -40,7 +40,7 @@
         self.tempCity = [decoder decodeObjectForKey:@"tempCity"];
         self.dateTemp = [decoder decodeObjectForKey:@"dateTemp"];
         self.weather = [decoder decodeObjectForKey:@"weather"];
-        self.imageWeather = [decoder decodeObjectForKey:@"imageWeather"];
+//        self.imageWeather = [decoder decodeObjectForKey:@"imageWeather"];
         self.image = [decoder decodeObjectForKey:@"image"];
     }
     return self;
@@ -92,10 +92,12 @@
             NSLog(@"%@  %@", self.nameCity,self.tempCity);
             
             
-            
+            //get icon
             NSString *ImageUrl = [NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png",self.icon];
             NSURL* url = [NSURL URLWithString:ImageUrl];
-            self.imageWeather = [NSData dataWithContentsOfURL:url];
+  //          self.imageWeather = [NSData dataWithContentsOfURL:url];
+            NSData *imageData = [NSData dataWithContentsOfURL:url];
+            self.image = [UIImage imageWithData:imageData];
             
             //        NSLog(@"temp: %@",[mainDetails objectForKey:@"temp"]);
             //        NSLog(@"humidity: %@",[mainDetails objectForKey:@"humidity"]);

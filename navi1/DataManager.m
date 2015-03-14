@@ -51,23 +51,14 @@
     if (cities) {
         return cities;
     } else {
-        CityClass *newCityClass1 = [CityClass cityWithId:@"696050" name:@"Киев"];
-        CityClass *newCityClass2 = [CityClass new];
-        CityClass *newCityClass3 = [CityClass new];
-        CityClass *newCityClass4 = [CityClass new];
+        CityClass *newCityClass1 = [CityClass cityWithId:@"696050" name:@"Киев"] ;
+        CityClass *newCityClass2 = [CityClass cityWithId:@"706483" name:@"Харьков"];
+        CityClass *newCityClass3 = [CityClass cityWithId:@"709930" name:@"Днепропетровск"];
+        CityClass *newCityClass4 = [CityClass cityWithId:@"704147" name:@"Кременчуг"];
         
         [newCityClass1 getWeather];
-        
-        newCityClass2.nameCity = @"Харьков";
-        newCityClass2.idCity=@"706483";
         [newCityClass2 getWeather];
-        
-        newCityClass3.nameCity = @"Днепропетровск";
-        newCityClass3.idCity=@"709930";
         [newCityClass3 getWeather];
-        
-        newCityClass4.nameCity = @"Кременчуг";
-        newCityClass4.idCity=@"704147";
         [newCityClass4 getWeather];
         
         [self addCity:newCityClass1];
@@ -79,6 +70,7 @@
     }
 }
 
+//add City and save into NSUserDefaults
 + (void)addCity:(CityClass *)city {
     NSMutableArray *cities;
     
@@ -95,6 +87,7 @@
     [prefs synchronize];
 }
 
+// get JSON data
 + (CityClass *)requestCityWithId:(NSString *)identifier {
     //http://api.openweathermap.org/data/2.5/weather?id=696050&units=metric&lang=ru
     
