@@ -22,6 +22,12 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    //focus to cityText
+    [self.cityText becomeFirstResponder];
+    [self.view addSubview:self.cityText];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -44,21 +50,25 @@
     //    [messageAlert show];
     
     if ([self.cityText.text length])  {
-    
-    CityClass *addCityClass = [CityClass cityWithId:@"696050" name:self.cityText.text] ;
-    [addCityClass getWeather];
-    [DataManager addCity:addCityClass];
-    //    [ViewController tableCity reloadData];
-    
-    
-    UIStoryboard *storyBoard = [self storyboard];
-    ViewController *gotoVC = [storyBoard instantiateViewControllerWithIdentifier:@"ViewController"];
-    [self showViewController:gotoVC sender:self];
+        
+        CityClass *addCityClass = [CityClass cityWithId:@"696050" name:self.cityText.text] ;
+        //    [addCityClass getWeather];
+        
+        [DataManager addCity:addCityClass];
+        //    [ViewController tableCity reloadData];
+        
+        
+        UIStoryboard *storyBoard = [self storyboard];
+        ViewController *gotoVC = [storyBoard instantiateViewControllerWithIdentifier:@"ViewController"];
+        [self showViewController:gotoVC sender:self];
     } else {
-       // self.cityText.borderStyle = UITextBorderStyleNone;
-        self.cityText.backgroundColor = [UIColor redColor];
+        // self.cityText.borderStyle = UITextBorderStyleNone;
+        UIColor *color = [UIColor colorWithRed:255/255.0f green:163/255.0f blue:145/255.0f alpha:1.0f];
+        self.cityText.backgroundColor = color;
         
     }
 }
+
+
 
 @end
