@@ -7,14 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		841715471AB4725B00554D5C /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 841715461AB4725B00554D5C /* delete.png */; };
 		843D55331AB01DB900EEB236 /* WeatherCityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D55321AB01DB900EEB236 /* WeatherCityVC.m */; };
 		84463EDF1AADD85B00025731 /* CityClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 84463EDE1AADD85B00025731 /* CityClass.m */; };
 		84C0D6861AAA1CE80040DC3A /* SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C0D6851AAA1CE80040DC3A /* SettingsVC.m */; };
 		84C3E72E1AB2312600EC095F /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C3E72D1AB2312600EC095F /* DataManager.m */; };
 		84F4856D1AA996830019CC75 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F4856C1AA996830019CC75 /* main.m */; };
 		84F485701AA996830019CC75 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F4856F1AA996830019CC75 /* AppDelegate.m */; };
-		84F485731AA996830019CC75 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F485721AA996830019CC75 /* ViewController.m */; };
+		84F485731AA996830019CC75 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F485721AA996830019CC75 /* MainVC.m */; };
 		84F485761AA996830019CC75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F485741AA996830019CC75 /* Main.storyboard */; };
 		84F4857B1AA996830019CC75 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F485791AA996830019CC75 /* LaunchScreen.xib */; };
 		84F485871AA996840019CC75 /* navi1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F485861AA996840019CC75 /* navi1Tests.m */; };
@@ -31,7 +30,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		841715461AB4725B00554D5C /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
 		843D55311AB01DB900EEB236 /* WeatherCityVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeatherCityVC.h; path = ../WeatherCityVC.h; sourceTree = "<group>"; };
 		843D55321AB01DB900EEB236 /* WeatherCityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeatherCityVC.m; path = ../WeatherCityVC.m; sourceTree = "<group>"; };
 		84463EDD1AADD85B00025731 /* CityClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityClass.h; sourceTree = "<group>"; };
@@ -45,8 +43,8 @@
 		84F4856C1AA996830019CC75 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84F4856E1AA996830019CC75 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84F4856F1AA996830019CC75 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		84F485711AA996830019CC75 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		84F485721AA996830019CC75 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		84F485711AA996830019CC75 /* MainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
+		84F485721AA996830019CC75 /* MainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MainVC.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		84F485751AA996830019CC75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84F4857A1AA996830019CC75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		84F485801AA996840019CC75 /* WeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,10 +97,18 @@
 			name = WeatherCityVC;
 			sourceTree = "<group>";
 		};
+		8442BE0A1AB56C220012EE82 /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				84F485711AA996830019CC75 /* MainVC.h */,
+				84F485721AA996830019CC75 /* MainVC.m */,
+			);
+			name = MainVC;
+			sourceTree = "<group>";
+		};
 		84C3E7291AB2303800EC095F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				841715461AB4725B00554D5C /* delete.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -112,8 +118,7 @@
 			children = (
 				842120F71AB18B51002B2DFD /* SettingsVC */,
 				842120F81AB18B71002B2DFD /* WeatherCityVC */,
-				84F485711AA996830019CC75 /* ViewController.h */,
-				84F485721AA996830019CC75 /* ViewController.m */,
+				8442BE0A1AB56C220012EE82 /* MainVC */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -269,7 +274,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				841715471AB4725B00554D5C /* delete.png in Resources */,
 				84F485761AA996830019CC75 /* Main.storyboard in Resources */,
 				84F4857B1AA996830019CC75 /* LaunchScreen.xib in Resources */,
 			);
@@ -290,7 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				843D55331AB01DB900EEB236 /* WeatherCityVC.m in Sources */,
-				84F485731AA996830019CC75 /* ViewController.m in Sources */,
+				84F485731AA996830019CC75 /* MainVC.m in Sources */,
 				84C3E72E1AB2312600EC095F /* DataManager.m in Sources */,
 				84C0D6861AAA1CE80040DC3A /* SettingsVC.m in Sources */,
 				84F485701AA996830019CC75 /* AppDelegate.m in Sources */,

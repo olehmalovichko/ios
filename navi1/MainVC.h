@@ -11,7 +11,7 @@
 
 
 
-@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface MainVC : UIViewController <UITableViewDelegate, UITableViewDataSource>
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath;
 @end

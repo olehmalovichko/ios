@@ -8,7 +8,7 @@
 
 #import "DataManager.h"
 #import "CityClass.h"
-#import "ViewController.h"
+#import "MainVC.h"
 
 
 @implementation DataManager

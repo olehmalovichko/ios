@@ -9,7 +9,7 @@
 #import "SettingsVC.h"
 #import "CityClass.h"
 #import "DataManager.h"
-#import "ViewController.h"
+#import "MainVC.h"
 
 @interface SettingsVC ()
 
@@ -59,7 +59,7 @@
         
         
         UIStoryboard *storyBoard = [self storyboard];
-        ViewController *gotoVC = [storyBoard instantiateViewControllerWithIdentifier:@"ViewController"];
+        MainVC *gotoVC = [storyBoard instantiateViewControllerWithIdentifier:@"ViewController"];
         [self showViewController:gotoVC sender:self];
     } else {
         // self.cityText.borderStyle = UITextBorderStyleNone;

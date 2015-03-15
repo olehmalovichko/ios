@@ -6,12 +6,12 @@
 //  Copyright (c) 2015 admin. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MainVC.h"
 #import "WeatherCityVC.h"
 #import "DataManager.h"
 #import "CityClass.h"
 
-@interface ViewController ()
+@interface MainVC ()
 
 
 @property (weak, nonatomic) IBOutlet UITableView *tableCity;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation ViewController {
+@implementation MainVC {
     
 }
 
@@ -32,24 +32,9 @@
     
     self.tableCity.dataSource = self;
     self.tableCity.delegate = self;
-    
-    
-    //    [DataManager  saveCustomObject:newCityClass1 key:@"city1"];
-    //    CityClass *test =  [DataManager loadcustomObjectWithKey:@"city1"];
-    
-    
-    
+   
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 #pragma mark - UITableViewDataSource
 
@@ -62,39 +47,15 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-    //    cell.textLabel.text = [self.tableData objectAtIndex:indexPath.row];
     CityClass *tclass = [self.tableData objectAtIndex:indexPath.row];
-    
-    //   [tclass getWeather];
     
     cell.textLabel.text =  [NSString stringWithFormat:@"%@  %@%@C",tclass.nameCity,tclass.tempCity,@"\u00B0" ];
     
     //http://openweathermap.org/img/w/10d.png
-    //    NSString *ImageUrl = [NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png",tclass.icon];
-    //    NSURL* url = [NSURL URLWithString:ImageUrl];
-    //    NSData* data = [NSData dataWithContentsOfURL:url];
-    //cell.imageView.image = [ UIImage imageNamed:@"weather.jpg"];
-    //cell.imageView.image = [UIImage imageWithData:data];
-    
-    //cell.imageView.image = [UIImage imageWithData:tclass.imageWeather];
-  
-  
- 
-    //add button
-//    UIButton *deletebtn=[UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    [deletebtn setFrame:CGRectMake(0,9, 25, 25)];
-//    deletebtn.tag=indexPath.row;
-//    
-//    UIImage *buttonImage = [UIImage imageNamed:@"delete.png"];
-//    [deletebtn setBackgroundImage:buttonImage forState:UIControlStateNormal];
-//    
+
     cell.imageView.image = tclass.image;
- //   cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
-//[deletebtn setImage:[UIImage imageNamed:@"delete.png"] forState:UIControlStateNormal];
-//    [deletebtn addTarget:self action:@selector(deleteRow:) forControlEvents:UIControlEventTouchUpInside];
-//    [cell addSubview:deletebtn];
-    
+   //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+  
     return cell;
 }
 
@@ -102,17 +63,7 @@
     return self.tableData.count;
 }
 
-- (IBAction)deleteRow:(id)sender
-{
-    NSLog(@"deleteRow---.");
-//    // Remove the row from data model
-//    //[self.tableData removeObjectAtIndex:indexPath.row];
-//    //[self.tableData objectAtIndex:indexPath.row]
-// //   CityClass *delCity [self.tableData objectAtIndex:indexPath.row];
-//    NSArray *tempData = [DataManager arrayByRemovingObject:self.tableData];
-//    // Request table view to reload
-//    [self.tableCity reloadData];
-}
+
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -162,30 +113,22 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //remove the deleted object from your data source.
         NSLog(@"remove row %li",(long)indexPath.row);
-//        NSArray *tempData = [DataManager arrayByRemovingObject:self.tableData val2:indexPath.row];
-//        self.tableData = tempData;
-        
+     
         [DataManager deleteCity:self.tableData[indexPath.row]];
         self.tableData = [DataManager allCities];
         [tableView reloadData]; // tell table to refresh now
     }
 }
 
+#pragma mark - updateWeather
 
 - (IBAction)updateWeather:(id)sender {
     NSLog(@"update weather");
-    
-    //self.tableData
-    
-//    for(int i=0; i<self.tableData.count; i++){
-//        [self.tableData[i] getWeather] ;
-//    }
-    
+  
     for (CityClass *city in self.tableData) {
         [city getWeather];
     }
     
-//    self.tableCity.reloadData;
     [self.tableCity reloadData];
 }
 
