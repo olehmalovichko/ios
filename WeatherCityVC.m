@@ -18,6 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // FIXME локализовать приложение и вынести текст в отдельный файл
     self.labelCityName.text = self.city.nameCity;
     self.labelTempCity.text = [NSString stringWithFormat:@"%@%@C", self.city.tempCity,@"\u00B0"];
     self.labelData.text = [NSString stringWithFormat:@"обновлено: %@",self.city.dateTemp];

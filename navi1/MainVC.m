@@ -89,8 +89,8 @@
     //
     //        [self performSegueWithIdentifier:@"showDetails" sender:self];
     
-    UIStoryboard *storyBoard = [self storyboard];
-    WeatherCityVC *weatherCityVC = [storyBoard instantiateViewControllerWithIdentifier:@"WeatherCityVC"];
+//    UIStoryboard *storyBoard = [self storyboard];
+    WeatherCityVC *weatherCityVC = [self.storyboard instantiateViewControllerWithIdentifier:@"WeatherCityVC"];
     //
     //weatherCityVC.labelCityName.text  = @"7777";
     //    weatherCityVC.CityName = tclass.nameCity;

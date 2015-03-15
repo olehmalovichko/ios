@@ -23,6 +23,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    // FIXME не вызываешь супер!
     //focus to cityText
     [self.cityText becomeFirstResponder];
     [self.view addSubview:self.cityText];
@@ -45,13 +46,14 @@
         [DataManager addCity:addCityClass];
         //[ViewController tableCity reloadData];
         
-        
+        // FIXME: тут нужно вернуться назад, а не создавать новый VC
         UIStoryboard *storyBoard = [self storyboard];
         MainVC *gotoVC = [storyBoard instantiateViewControllerWithIdentifier:@"ViewController"];
         [self showViewController:gotoVC sender:self];
     } else {
         // self.cityText.borderStyle = UITextBorderStyleNone;
         UIColor *color = [UIColor colorWithRed:255/255.0f green:163/255.0f blue:145/255.0f alpha:1.0f];
+//        [UIColor redColor];
         self.cityText.backgroundColor = color;
         
     }

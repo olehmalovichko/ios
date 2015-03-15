@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		843D55331AB01DB900EEB236 /* WeatherCityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D55321AB01DB900EEB236 /* WeatherCityVC.m */; };
 		84463EDF1AADD85B00025731 /* CityClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 84463EDE1AADD85B00025731 /* CityClass.m */; };
+		84BBBB431AB6213900C74309 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84BBBB421AB6213900C74309 /* Media.xcassets */; };
 		84C0D6861AAA1CE80040DC3A /* SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C0D6851AAA1CE80040DC3A /* SettingsVC.m */; };
 		84C3E72E1AB2312600EC095F /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C3E72D1AB2312600EC095F /* DataManager.m */; };
 		84F4856D1AA996830019CC75 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F4856C1AA996830019CC75 /* main.m */; };
@@ -34,6 +35,7 @@
 		843D55321AB01DB900EEB236 /* WeatherCityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeatherCityVC.m; path = ../WeatherCityVC.m; sourceTree = "<group>"; };
 		84463EDD1AADD85B00025731 /* CityClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityClass.h; sourceTree = "<group>"; };
 		84463EDE1AADD85B00025731 /* CityClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityClass.m; sourceTree = "<group>"; };
+		84BBBB421AB6213900C74309 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		84C0D6841AAA1CE80040DC3A /* SettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsVC.h; sourceTree = "<group>"; };
 		84C0D6851AAA1CE80040DC3A /* SettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsVC.m; sourceTree = "<group>"; };
 		84C3E72C1AB2312600EC095F /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 		84C3E7291AB2303800EC095F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				84BBBB421AB6213900C74309 /* Media.xcassets */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84F485761AA996830019CC75 /* Main.storyboard in Resources */,
+				84BBBB431AB6213900C74309 /* Media.xcassets in Resources */,
 				84F4857B1AA996830019CC75 /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +427,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = navi1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Weather;
@@ -433,6 +438,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = navi1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Weather;

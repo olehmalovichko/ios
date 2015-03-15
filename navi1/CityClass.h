@@ -20,6 +20,7 @@
 //@property (nonatomic, strong) NSData   *imageWeather;
 @property (nonatomic, strong) UIImage *image; // FIXME пофиксить - fixed
 
+// FIXME метод загрузки погоды нужно перенести в DataManager
 - (BOOL)getWeather;
 
 + (CityClass *)cityWithId:(NSString *)identifier name:(NSString *)name;
