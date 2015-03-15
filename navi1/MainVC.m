@@ -32,7 +32,7 @@
     
     self.tableCity.dataSource = self;
     self.tableCity.delegate = self;
-   
+    
 }
 
 
@@ -52,10 +52,10 @@
     cell.textLabel.text =  [NSString stringWithFormat:@"%@  %@%@C",tclass.nameCity,tclass.tempCity,@"\u00B0" ];
     
     //http://openweathermap.org/img/w/10d.png
-
+    
     cell.imageView.image = tclass.image;
-   //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-  
+    //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
     return cell;
 }
 
@@ -102,7 +102,7 @@
     //    [self.navigationController pushViewController:WeatherCityVC animated:YES];
     
     
-
+    
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -113,7 +113,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //remove the deleted object from your data source.
         NSLog(@"remove row %li",(long)indexPath.row);
-     
+        
         [DataManager deleteCity:self.tableData[indexPath.row]];
         self.tableData = [DataManager allCities];
         [tableView reloadData]; // tell table to refresh now
@@ -124,7 +124,7 @@
 
 - (IBAction)updateWeather:(id)sender {
     NSLog(@"update weather");
-  
+    
     for (CityClass *city in self.tableData) {
         [city getWeather];
     }

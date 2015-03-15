@@ -14,9 +14,7 @@
 + (NSArray *)allCities;
 + (void)addCity:(CityClass *)city;
 + (void)deleteCity:(CityClass *)city;
-
 + (CityClass *)requestCityWithId:(NSString *)identifier;
 
-+ (NSArray *)arrayByRemovingObject:(id)obj val2:(NSUInteger)row;
 
 @end

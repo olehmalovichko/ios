@@ -14,13 +14,8 @@
 @implementation DataManager
 
 
-+ (NSArray *)arrayByRemovingObject:(id)obj val2:(NSUInteger)row {
-  //  if (!obj) return [self copy]; // copy because all array* methods return new arrays
-    NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:obj];
-    [mutableArray removeObjectAtIndex:row];
-    return [NSArray arrayWithArray:mutableArray];
-}
 
+// check city
 + (BOOL)citiesExist {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSData *myEncodeObject = [prefs objectForKey:@"allCities"];
@@ -28,19 +23,15 @@
     return cities;
 }
 
+#pragma mark allCities
+
+//return array of cities
 + (NSArray *)allCities {
-    
-    //    NSUserDefaults - почитать про него, должен хранить в нем все города
-    /*
-     1 проверяешь лежит ли в NSUSerDefault массив городов
-     2 если не лежит, то добавляешь наши стандартные 4 города в него
-     3 если что-то лежит в массиве, то просто возвращаем этот массив городов
-     */
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSData *myEncodeObject = [prefs objectForKey:@"allCities"];
     NSArray *cities = (NSArray *)[NSKeyedUnarchiver unarchiveObjectWithData:myEncodeObject];
-   
+    
     if (cities && cities.count) {
         return cities;
     } else {
@@ -63,6 +54,8 @@
     }
 }
 
+#pragma mark addCity
+
 //add City and save into NSUserDefaults
 + (void)addCity:(CityClass *)city {
     
@@ -70,35 +63,33 @@
     NSData *myEncodeObject = [prefs objectForKey:@"allCities"];
     NSArray *cities = (NSArray *)[NSKeyedUnarchiver unarchiveObjectWithData:myEncodeObject];
     
-    
     NSMutableArray *citiesm = [NSMutableArray arrayWithArray:cities];
-
     
-//    if ([self citiesExist]) {
-//        cities = [NSMutableArray arrayWithArray:[self allCities]];
-//    } else {
-//        cities = [NSMutableArray array];
-//    }
     [citiesm addObject:city];
-
+    
     NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:[NSArray arrayWithArray:citiesm]];
     [prefs setObject:myEncodedObject forKey:@"allCities"];
     [prefs synchronize];
 }
 
+#pragma mark deleteCity
+
+//delete city
 + (void)deleteCity:(CityClass *)city {
-    // FIXME: удаление города реализовать!
     
     NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[self allCities]];
     [mutableArray removeObject:city];
-     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:[NSArray arrayWithArray:mutableArray]];
     [prefs setObject:myEncodedObject forKey:@"allCities"];
     [prefs synchronize];
-
+    
 }
 
-// get JSON data
+
+#pragma mark requestCityWithId
+
+// get city with id
 + (CityClass *)requestCityWithId:(NSString *)identifier {
     //http://api.openweathermap.org/data/2.5/weather?id=696050&units=metric&lang=ru
     

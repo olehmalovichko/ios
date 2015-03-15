@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelCityName;
 @property (weak, nonatomic) IBOutlet UILabel *labelTempCity;
 @property (weak, nonatomic) IBOutlet UILabel *labelData;
-
 @property (weak, nonatomic) IBOutlet UIImageView *imageWeather;
 @property (weak, nonatomic) IBOutlet UILabel *labelWeather;
 
