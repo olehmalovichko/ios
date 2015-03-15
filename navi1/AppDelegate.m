@@ -17,6 +17,22 @@
 @implementation AppDelegate
 
 
+- (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)())completionHandler
+{
+    NSLog(@"Background session UIApplicationDelegate method");
+    
+    UILocalNotification* locNot = [[UILocalNotification alloc] init];
+    locNot.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
+    locNot.alertBody = [NSString stringWithFormat:@"still alive!"];
+    locNot.timeZone = [NSTimeZone defaultTimeZone];
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:locNot];
+    
+    NSLog(@"completion handler: %@", completionHandler);
+    self.backgroundSessionCompletionHandler = completionHandler;
+}
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     return YES;

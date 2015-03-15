@@ -14,5 +14,9 @@
 @interface MainVC : UIViewController <UITableViewDelegate, UITableViewDataSource>
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
+
 @end
 

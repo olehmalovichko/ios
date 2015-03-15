@@ -10,13 +10,14 @@
 #import "WeatherCityVC.h"
 #import "DataManager.h"
 #import "CityClass.h"
+#import "AppDelegate.h"
 
 @interface MainVC ()
 
 
 @property (weak, nonatomic) IBOutlet UITableView *tableCity;
 @property (strong, nonatomic) NSArray *tableData;
-
+@property (nonatomic, strong) NSURLSessionDownloadTask *downloadTask;
 
 @end
 
@@ -27,6 +28,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"---start---");
+    
+    [self backgroundSession];
     
     self.tableData = [DataManager allCities];
     
@@ -131,5 +134,88 @@
     
     [self.tableCity reloadData];
 }
+
+
+
+
+- (NSURLSession *)backgroundSession{
+    static NSURLSession *session = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSLog(@"create new session");
+        NSURLSessionConfiguration *config = [NSURLSessionConfiguration backgroundSessionConfiguration:@"com.dev.BackgroundDownloadTest.BackgroundSession"];
+        [config setAllowsCellularAccess:YES];
+        session = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
+    });
+    return session;
+}
+
+
+
+- (void)callCompletionHandlerIfFinished
+{
+    NSLog(@"call completion handler");
+    [[self backgroundSession] getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
+        NSUInteger count = [dataTasks count] + [uploadTasks count] + [downloadTasks count];
+        if (count == 0) {
+            NSLog(@"all tasks ended");
+            AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+            if (appDelegate.backgroundSessionCompletionHandler == nil) return;
+            
+            void (^comletionHandler)() = appDelegate.backgroundSessionCompletionHandler;
+            appDelegate.backgroundSessionCompletionHandler = nil;
+            comletionHandler();
+        }
+    }];
+}
+
+#pragma mark - NSURLSession deleagte
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error
+{
+    if (error) {
+        NSLog(@"error: %@ - %@", task, error);
+    } else {
+        NSLog(@"success: %@", task);
+    }
+    self.downloadTask = nil;
+    [self callCompletionHandlerIfFinished];
+}
+
+- (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite
+{
+    double progress = (double)totalBytesWritten / (double)totalBytesExpectedToWrite;
+    NSLog(@"download: %@ progress: %f", downloadTask, progress);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.progressView.progress = progress;
+    });
+}
+
+- (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location
+{
+    NSLog(@"did finish downloading");
+    
+    // We've successfully finished the download. Let's save the file
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    NSArray *URLs = [fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+    NSURL *documentsDirectory = URLs[0];
+    
+    NSURL *destinationPath = [documentsDirectory URLByAppendingPathComponent:[location lastPathComponent]];
+    NSError *error;
+    
+    // Make sure we overwrite anything that's already there
+    [fileManager removeItemAtURL:destinationPath error:NULL];
+    BOOL success = [fileManager copyItemAtURL:location toURL:destinationPath error:&error];
+    
+    if (success) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.imageView.image = [UIImage imageWithContentsOfFile:[destinationPath path]];
+            [self.progressView setHidden:YES];
+        });
+    }
+}
+
+
+
 
 @end

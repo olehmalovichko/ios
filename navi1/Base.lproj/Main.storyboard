@@ -17,12 +17,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dAH-Ln-fvh">
-                                <rect key="frame" x="0.0" y="64" width="315" height="492"/>
+                                <rect key="frame" x="0.0" y="217" width="315" height="339"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="13" y="110" width="374" height="460"/>
                                 </variation>
                             </tableView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ko-M6-nyW">
+                                <rect key="frame" x="23" y="69" width="268" height="2"/>
+                            </progressView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PDY-be-VPK">
+                                <rect key="frame" x="16" y="72" width="248" height="128"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -56,13 +62,15 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imageView" destination="PDY-be-VPK" id="N0j-0D-RoY"/>
+                        <outlet property="progressView" destination="1Ko-M6-nyW" id="SWV-bg-sbQ"/>
                         <outlet property="tableCity" destination="dAH-Ln-fvh" id="bqd-Ab-zvM"/>
                         <segue destination="2Ee-V0-A88" kind="show" identifier="showDetails" id="em9-dZ-Xbg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1303" y="-21"/>
+            <point key="canvasLocation" x="1071" y="1"/>
         </scene>
         <!--SettingsVC-->
         <scene sceneID="UJE-Wt-WU1">
