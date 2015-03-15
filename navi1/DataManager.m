@@ -35,22 +35,22 @@
     if (cities && cities.count) {
         return cities;
     } else {
-        CityClass *newCityClass1 = [CityClass cityWithId:@"696050" name:@"Киев"] ;
-        CityClass *newCityClass2 = [CityClass cityWithId:@"706483" name:@"Харьков"];
-        CityClass *newCityClass3 = [CityClass cityWithId:@"709930" name:@"Днепропетровск"];
-        CityClass *newCityClass4 = [CityClass cityWithId:@"704147" name:@"Кременчуг"];
+        CityClass *city1 = [CityClass cityWithId:@"696050" name:@"Киев"] ;
+        CityClass *city2 = [CityClass cityWithId:@"706483" name:@"Харьков"];
+        CityClass *city3 = [CityClass cityWithId:@"709930" name:@"Днепропетровск"];
+        CityClass *city4 = [CityClass cityWithId:@"704147" name:@"Кременчуг"];
         
-        [newCityClass1 getWeather];
-        [newCityClass2 getWeather];
-        [newCityClass3 getWeather];
-        [newCityClass4 getWeather];
+        [city1 getWeather];
+        [city2 getWeather];
+        [city3 getWeather];
+        [city4 getWeather];
         
-        [self addCity:newCityClass1];
-        [self addCity:newCityClass2];
-        [self addCity:newCityClass3];
-        [self addCity:newCityClass4];
+        [self addCity:city1];
+        [self addCity:city2];
+        [self addCity:city3];
+        [self addCity:city4];
         
-        return @[newCityClass1, newCityClass2, newCityClass3, newCityClass4];
+        return @[city1, city2, city3, city4];
     }
 }
 
