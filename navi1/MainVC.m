@@ -20,10 +20,10 @@
 @property (strong, nonatomic) NSArray *tableData;
 @property (nonatomic, strong) NSURLSessionDownloadTask *downloadTask;
 
-@property (strong,nonatomic) DetailVC* detailview;
+
 
 //@property (strong,nonatomic) IBOutlet UITableView *table;
-- (IBAction)button2:(id)sender;
+//- (IBAction)button2:(id)sender;
 
 @end
 
@@ -39,6 +39,13 @@
     self.tableCity.delegate = self;
 //    self.detailview.delegate = self;
     
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showAddCity"]) {
+        DetailVC *detailVC = segue.destinationViewController;
+        detailVC.delegate = self;
+    }
 }
 
 
@@ -123,15 +130,15 @@
 -(void)reloadTableData {
   //  [self.table reloadData];
     NSLog(@"---reload delegat---");
-     [self.tableCity reloadData];
+    self.tableData = [DataManager allCities];
+    [self.tableCity reloadData];
 }
 
 
 - (IBAction)button2:(id)sender {
     NSLog(@"click button2");
     
-    DetailVC *secondViewController =
-    [self.storyboard instantiateViewControllerWithIdentifier:@"DetailVC"];
+    DetailVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailVC"];
     secondViewController.delegate = self;
     [self showViewController:secondViewController sender:self];
     

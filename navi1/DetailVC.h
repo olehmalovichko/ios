@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @protocol DetailVCDElegate <NSObject>
--(void)reloadTableData;
+- (void)reloadTableData;
 @end
 
 @interface DetailVC : UIViewController

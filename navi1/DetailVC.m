@@ -18,7 +18,7 @@
 
 @implementation DetailVC
 
-@synthesize delegate;
+//@synthesize delegate;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,7 +31,7 @@
     [super viewWillAppear:animated];
     //focus to cityText
     [self.cityText becomeFirstResponder];
-    [self.view addSubview:self.cityText];
+//    [self.view addSubview:self.cityText];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,7 +52,7 @@
         
         [DataManager addCity:addCityClass];
     
-        [delegate reloadTableData];
+        [self.delegate reloadTableData];
         [self.navigationController popToRootViewControllerAnimated:YES];
  
         
