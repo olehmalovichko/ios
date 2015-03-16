@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "CityClass.h"
+#import "DetailVC.h"
 
-@interface MainVC : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+
+@interface MainVC : UIViewController <UITableViewDelegate, UITableViewDataSource,DetailVCDElegate>
+
+//@property (nonatomic, strong) id Delegate;
+
+
 
 
 @end

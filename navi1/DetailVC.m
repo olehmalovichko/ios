@@ -6,19 +6,24 @@
 //  Copyright (c) 2015 admin. All rights reserved.
 //
 
-#import "SettingsVC.h"
+#import "DetailVC.h"
 #import "CityClass.h"
 #import "DataManager.h"
 #import "MainVC.h"
+#import "DetailVC.h"
 
-@interface SettingsVC ()
+@interface DetailVC ()
 
 @end
 
-@implementation SettingsVC
+@implementation DetailVC
+
+@synthesize delegate;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //DetailVC.delegate = self;
+    
     // Do any additional setup after loading the view.
 }
 
@@ -35,6 +40,8 @@
 }
 
 
+
+
 - (IBAction)actionAddCity:(id)sender {
     NSLog(@"Click!");
     
@@ -44,17 +51,20 @@
         //[addCityClass getWeather];
         
         [DataManager addCity:addCityClass];
-//        [MainVC tableCity:reloadData];
-
+    
+        [delegate reloadTableData];
         [self.navigationController popToRootViewControllerAnimated:YES];
+ 
+        
     } else {
         // self.cityText.borderStyle = UITextBorderStyleNone;
         UIColor *color = [UIColor colorWithRed:255/255.0f green:163/255.0f blue:145/255.0f alpha:1.0f];
-//        [UIColor redColor];
+        //        [UIColor redColor];
         self.cityText.backgroundColor = color;
         
     }
 }
+
 
 
 

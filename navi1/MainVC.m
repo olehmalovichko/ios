@@ -11,28 +11,33 @@
 #import "DataManager.h"
 #import "CityClass.h"
 #import "AppDelegate.h"
+#import "DetailVC.h"
 
-@interface MainVC ()
+@interface MainVC () 
 
 
 @property (weak, nonatomic) IBOutlet UITableView *tableCity;
 @property (strong, nonatomic) NSArray *tableData;
 @property (nonatomic, strong) NSURLSessionDownloadTask *downloadTask;
 
+@property (strong,nonatomic) DetailVC* detailview;
+
+//@property (strong,nonatomic) IBOutlet UITableView *table;
+- (IBAction)button2:(id)sender;
+
 @end
 
-@implementation MainVC {
-    
-}
+@implementation MainVC
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"---start---");
     
     self.tableData = [DataManager allCities];
-    
     self.tableCity.dataSource = self;
     self.tableCity.delegate = self;
+//    self.detailview.delegate = self;
     
 }
 
@@ -99,7 +104,7 @@
         
         [DataManager deleteCity:self.tableData[indexPath.row]];
         self.tableData = [DataManager allCities];
-        [tableView reloadData]; // tell table to refresh now
+        [tableView  reloadData]; // tell table to refresh now
     }
 }
 
@@ -115,6 +120,28 @@
     [self.tableCity reloadData];
 }
 
+-(void)reloadTableData {
+  //  [self.table reloadData];
+    NSLog(@"---reload delegat---");
+     [self.tableCity reloadData];
+}
 
 
+- (IBAction)button2:(id)sender {
+    NSLog(@"click button2");
+    
+    DetailVC *secondViewController =
+    [self.storyboard instantiateViewControllerWithIdentifier:@"DetailVC"];
+    secondViewController.delegate = self;
+    [self showViewController:secondViewController sender:self];
+    
+    
+    
+//    WeatherCityVC *weatherCityVC = [self.storyboard instantiateViewControllerWithIdentifier:@"WeatherCityVC"];
+//    
+//    weatherCityVC.city = cellCity;
+//    
+//    NSLog(@"city: %@",cellCity.nameCity);
+//    [self showViewController:weatherCityVC sender:self];
+}
 @end
