@@ -9,13 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "CityClass.h"
 
-
-
 @interface MainVC : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-// FIXME эти два метода в .h не нужны
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath;
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

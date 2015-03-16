@@ -28,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"---start---");
-
+    
     self.tableData = [DataManager allCities];
     
     self.tableCity.dataSource = self;
@@ -55,7 +55,7 @@
     //http://openweathermap.org/img/w/10d.png
     
     cell.imageView.image = tclass.image;
-    //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }
@@ -69,38 +69,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    // self.selectedIndexPath = indexPath;
-    //  [tableView reloadData];
-    
-    //    for (UITableViewCell *cell in [tableView visibleCells]) {
-    //        cell.accessoryType = UITableViewCellAccessoryNone;
-    //    }
-    //
-    //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    //    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    CityClass *tclass = [self.tableData objectAtIndex:indexPath.row];
-    //[ tclass getWeather:0]; //get weather
-    //    self.labelTemperature.text = [NSString stringWithFormat:@"%@%@C",tclass.tempCity,@"\u00B0"];
-    //    self.labelDate.text = tclass.dateTemp;
-    //    self.labelWeather.text  = tclass.weather;
-    //
-    //        [self performSegueWithIdentifier:@"showDetails" sender:self];
+    CityClass *cellCity = [self.tableData objectAtIndex:indexPath.row];
     
-//    UIStoryboard *storyBoard = [self storyboard];
     WeatherCityVC *weatherCityVC = [self.storyboard instantiateViewControllerWithIdentifier:@"WeatherCityVC"];
-    //
-    //weatherCityVC.labelCityName.text  = @"7777";
-    //    weatherCityVC.CityName = tclass.nameCity;
-    //    weatherCityVC.labelCityName.text = tclass.nameCity;
-    weatherCityVC.city = tclass;
     
-    NSLog(@"city: %@",tclass.nameCity);
+    weatherCityVC.city = cellCity;
+    
+    NSLog(@"city: %@",cellCity.nameCity);
     [self showViewController:weatherCityVC sender:self];
     
-    //    [self.navigationController pushViewController:WeatherCityVC animated:YES];
+    //[self.navigationController pushViewController:WeatherCityVC animated:YES];
     
     
     
@@ -111,7 +91,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
         //remove the deleted object from your data source.
         NSLog(@"remove row %li",(long)indexPath.row);
         
