@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSURLSessionDownloadTask *downloadTask;
 - (IBAction)UpdateWeather:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *testLabel;
 
 
 //@property (strong,nonatomic) IBOutlet UITableView *table;
@@ -35,6 +36,8 @@
     [super viewDidLoad];
     NSLog(@"---start---");
     NSLog(NSLocalizedString(@"weather", nil));
+    self.testLabel.text = NSLocalizedString(@"weather", nil);
+    
     
     self.tableData = [DataManager allCities];
     self.tableCity.dataSource = self;

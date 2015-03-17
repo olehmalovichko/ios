@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		843D0D801AB8A2BF003F8F2D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 843D0D7E1AB8A2BF003F8F2D /* Localizable.strings */; };
 		843D55331AB01DB900EEB236 /* WeatherCityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D55321AB01DB900EEB236 /* WeatherCityVC.m */; };
 		84463EDF1AADD85B00025731 /* CityClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 84463EDE1AADD85B00025731 /* CityClass.m */; };
 		84BBBB431AB6213900C74309 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84BBBB421AB6213900C74309 /* Media.xcassets */; };
@@ -31,6 +32,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		843D0D6F1AB89E54003F8F2D /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		843D0D701AB89E54003F8F2D /* uk */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = uk; path = uk.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		843D0D7F1AB8A2BF003F8F2D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		843D0D811AB8A2F6003F8F2D /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		843D55311AB01DB900EEB236 /* WeatherCityVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeatherCityVC.h; path = ../WeatherCityVC.h; sourceTree = "<group>"; };
 		843D55321AB01DB900EEB236 /* WeatherCityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeatherCityVC.m; path = ../WeatherCityVC.m; sourceTree = "<group>"; };
 		84463EDD1AADD85B00025731 /* CityClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityClass.h; sourceTree = "<group>"; };
@@ -40,10 +45,8 @@
 		84C0D6851AAA1CE80040DC3A /* DetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVC.m; sourceTree = "<group>"; };
 		84C3E72C1AB2312600EC095F /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		84C3E72D1AB2312600EC095F /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
-		84D255A21AB858150071F92F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
-		84D255A31AB858150071F92F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		84D255A41AB858260071F92F /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
-		84D255A51AB858260071F92F /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		84D255A21AB858150071F92F /* ru */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		84D255A41AB858260071F92F /* uk */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		84F485671AA996830019CC75 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F4856B1AA996830019CC75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84F4856C1AA996830019CC75 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -115,6 +118,7 @@
 		84C3E7291AB2303800EC095F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				843D0D7E1AB8A2BF003F8F2D /* Localizable.strings */,
 				84BBBB421AB6213900C74309 /* Media.xcassets */,
 			);
 			name = Resources;
@@ -264,6 +268,8 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
+				uk,
 			);
 			mainGroup = 84F4855E1AA996830019CC75;
 			productRefGroup = 84F485681AA996830019CC75 /* Products */;
@@ -282,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84F485761AA996830019CC75 /* Main.storyboard in Resources */,
+				843D0D801AB8A2BF003F8F2D /* Localizable.strings in Resources */,
 				84BBBB431AB6213900C74309 /* Media.xcassets in Resources */,
 				84F4857B1AA996830019CC75 /* LaunchScreen.xib in Resources */,
 			);
@@ -330,6 +337,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		843D0D7E1AB8A2BF003F8F2D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				843D0D7F1AB8A2BF003F8F2D /* ru */,
+				843D0D811AB8A2F6003F8F2D /* uk */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		84F485741AA996830019CC75 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -344,8 +360,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				84F4857A1AA996830019CC75 /* Base */,
-				84D255A31AB858150071F92F /* ru */,
-				84D255A51AB858260071F92F /* uk */,
+				843D0D6F1AB89E54003F8F2D /* ru */,
+				843D0D701AB89E54003F8F2D /* uk */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -425,6 +441,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
