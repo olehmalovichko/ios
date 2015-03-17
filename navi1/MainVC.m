@@ -1,5 +1,5 @@
 //
-//  ViewController.m
+//  MainVC.m
 //  navi1
 //
 //  Created by admin on 06.03.15.
@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableCity;
 @property (strong, nonatomic) NSArray *tableData;
 @property (nonatomic, strong) NSURLSessionDownloadTask *downloadTask;
+- (IBAction)UpdateWeather:(id)sender;
 
 
 
@@ -115,17 +116,9 @@
     }
 }
 
-#pragma mark - updateWeather
 
-- (IBAction)updateWeather:(id)sender {
-    NSLog(@"update weather");
-    
-    for (CityClass *city in self.tableData) {
-        [DataManager getWeather:city];
-    }
-    
-    [self.tableCity reloadData];
-}
+
+#pragma mark reloadTable Data
 
 -(void)reloadTableData {
   //  [self.table reloadData];
@@ -135,5 +128,19 @@
 }
 
 
+#pragma mark - updateWeather
 
+- (IBAction)UpdateWeather:(id)sender {
+    NSLog(@"--update weather--");
+    
+    for (CityClass *city in self.tableData) {
+        CityClass *cityUpdate = city;
+        [DataManager deleteCity:city];
+        [DataManager getWeather:cityUpdate];
+        [DataManager addCity:cityUpdate];
+    }
+    
+    //self.tableData = [DataManager allCities];
+    [self.tableCity reloadData];
+}
 @end

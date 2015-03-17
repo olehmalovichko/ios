@@ -28,6 +28,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="Bgu-wL-Ajh">
                         <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="D4x-rS-hN9">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Обновить">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="UpdateWeather:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h4s-ua-tpQ"/>
+                            </connections>
+                        </button>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="FST-cp-2ZG">
                             <button key="customView" opaque="NO" contentMode="center" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3Sw-6I-tdP">
                                 <rect key="frame" x="564" y="7" width="40" height="30"/>

@@ -44,7 +44,7 @@
         [DataManager getWeather:city2];
         [DataManager getWeather:city3];
         [DataManager getWeather:city4];
-     
+        
         [self addCity:city1];
         [self addCity:city2];
         [self addCity:city3];
@@ -127,6 +127,7 @@
     
     if (allCoursesData==nil) {
         NSLog(@"data=nil");
+        city.tempCity = @"нет данных";
         
     } else {
         
