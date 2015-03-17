@@ -26,8 +26,6 @@
     }
 }
 
-
-
 - (void)encodeWithCoder:(NSCoder *)encoder {
     //encode properties,variables, etc...
     [encoder encodeObject:self.nameCity forKey:@"nameCity"];
@@ -50,7 +48,6 @@
         self.tempCity = [decoder decodeObjectForKey:@"tempCity"];
         self.dateTemp = [decoder decodeObjectForKey:@"dateTemp"];
         self.weather = [decoder decodeObjectForKey:@"weather"];
-//        self.imageWeather = [decoder decodeObjectForKey:@"imageWeather"];
         self.image = [decoder decodeObjectForKey:@"image"];
     }
     return self;

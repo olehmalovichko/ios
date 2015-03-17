@@ -1,0 +1,25 @@
+
+/* Class = "UIButton"; normalTitle = "+"; ObjectID = "3Sw-6I-tdP"; */
+"3Sw-6I-tdP.normalTitle" = "+";
+
+/* Class = "UIButton"; normalTitle = "Обновить"; ObjectID = "D4x-rS-hN9"; */
+"D4x-rS-hN9.normalTitle" = "Оновити";
+
+/* Class = "UILabel"; text = "LabelData"; ObjectID = "V5W-w3-F1g"; */
+"V5W-w3-F1g.text" = "LabelData";
+
+/* Class = "UIButton"; normalTitle = "Добавить"; ObjectID = "lt8-c5-B7Q"; */
+"lt8-c5-B7Q.normalTitle" = "Додати";
+
+/* Class = "UILabel"; text = "LabelWeather"; ObjectID = "pnQ-nM-Svz"; */
+"pnQ-nM-Svz.text" = "LabelWeather";
+
+/* Class = "UILabel"; text = "LabelTemp"; ObjectID = "vSa-9Z-Iha"; */
+"vSa-9Z-Iha.text" = "LabelTemp";
+
+/* Class = "UILabel"; text = "LabelCity"; ObjectID = "x8T-n1-Hcl"; */
+"x8T-n1-Hcl.text" = "LabelCity";
+
+
+"weather" = "погода укр.";
+

@@ -34,6 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"---start---");
+    NSLog(NSLocalizedString(@"weather", nil));
     
     self.tableData = [DataManager allCities];
     self.tableCity.dataSource = self;

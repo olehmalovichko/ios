@@ -40,6 +40,10 @@
 		84C0D6851AAA1CE80040DC3A /* DetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVC.m; sourceTree = "<group>"; };
 		84C3E72C1AB2312600EC095F /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		84C3E72D1AB2312600EC095F /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		84D255A21AB858150071F92F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		84D255A31AB858150071F92F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		84D255A41AB858260071F92F /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
+		84D255A51AB858260071F92F /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		84F485671AA996830019CC75 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F4856B1AA996830019CC75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84F4856C1AA996830019CC75 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -330,6 +334,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				84F485751AA996830019CC75 /* Base */,
+				84D255A21AB858150071F92F /* ru */,
+				84D255A41AB858260071F92F /* uk */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -338,6 +344,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				84F4857A1AA996830019CC75 /* Base */,
+				84D255A31AB858150071F92F /* ru */,
+				84D255A51AB858260071F92F /* uk */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";

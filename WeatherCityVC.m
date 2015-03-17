@@ -28,6 +28,8 @@
     
     NSLog(@"city2: %@",self.city.nameCity);
     NSLog(@"temp2: %@",self.city.tempCity);
+    NSLog(NSLocalizedString(@"weather", nil));
+    
     // Do any additional setup after loading the view.
 }
 
