@@ -16,5 +16,8 @@
 + (void)deleteCity:(CityClass *)city;
 + (CityClass *)requestCityWithId:(NSString *)identifier;
 
+// FIXME метод загрузки погоды нужно перенести в DataManager
++ (BOOL)getWeather:(CityClass *)city;
+
 
 @end

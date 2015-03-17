@@ -121,7 +121,7 @@
     NSLog(@"update weather");
     
     for (CityClass *city in self.tableData) {
-        [city getWeather];
+        [DataManager getWeather:city];
     }
     
     [self.tableCity reloadData];

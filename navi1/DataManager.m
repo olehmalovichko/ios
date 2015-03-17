@@ -40,11 +40,11 @@
         CityClass *city3 = [CityClass cityWithId:@"709930" name:@"Днепропетровск"];
         CityClass *city4 = [CityClass cityWithId:@"704147" name:@"Кременчуг"];
         
-        [city1 getWeather];
-        [city2 getWeather];
-        [city3 getWeather];
-        [city4 getWeather];
-        
+        [DataManager getWeather:city1];
+        [DataManager getWeather:city2];
+        [DataManager getWeather:city3];
+        [DataManager getWeather:city4];
+     
         [self addCity:city1];
         [self addCity:city2];
         [self addCity:city3];
@@ -115,5 +115,69 @@
         }
     }
 }
+
+#pragma mark getWeather
+
++ (BOOL)getWeather:(CityClass *)city {
+    
+    NSString *sURL = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?id=%@&units=metric&lang=ru",city.idCity];
+    
+    NSData *allCoursesData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:sURL]];
+    
+    
+    if (allCoursesData==nil) {
+        NSLog(@"data=nil");
+        
+    } else {
+        
+        
+        NSError *error;
+        
+        NSMutableDictionary *dict = [NSJSONSerialization
+                                     JSONObjectWithData:allCoursesData
+                                     options:NSJSONReadingMutableContainers
+                                     error:&error];
+        
+        if((error )) {
+            NSLog(@"Error: %@", [error localizedDescription]);
+        } else {
+            NSLog(@"%@", dict);
+            //NSArray *keys = [dict allKeys];
+            
+            NSDictionary *mainDetails = [dict objectForKey:@"main"];
+            city.tempCity = [mainDetails objectForKey:@"temp"] ;
+            
+            NSArray *Weather = [dict objectForKey:@"weather"];
+            NSDictionary *weather = Weather.lastObject;
+            city.weather = weather[@"description"];
+            city.icon = weather[@"icon"];
+            
+            NSLog(@"description:%@",city.weather);
+            NSLog(@"icon:%@",city.icon);
+            
+            NSDate *date = [NSDate date];
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init] ;
+            [dateFormatter setDateStyle:NSDateFormatterLongStyle];
+            [dateFormatter setDateFormat:@"dd MMM YYYY, hh:mm"];
+            city.dateTemp = [dateFormatter stringFromDate:date];
+            
+            NSLog(@"%@  %@", city.nameCity,city.tempCity);
+            
+            
+            //get icon
+            NSString *ImageUrl = [NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png",city.icon];
+            NSURL* url = [NSURL URLWithString:ImageUrl];
+            //          self.imageWeather = [NSData dataWithContentsOfURL:url];
+            NSData *imageData = [NSData dataWithContentsOfURL:url];
+            city.image = [UIImage imageWithData:imageData];
+            
+        }
+        
+        
+    } //if
+    
+    return NO;
+}
+
 
 @end
