@@ -8,17 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol DetailVCDElegate <NSObject>
+@protocol DetailVCDelegate <NSObject>
 - (void)reloadTableData;
 @end
 
 @interface DetailVC : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *cityText;
-
-@property (nonatomic,weak) id <DetailVCDElegate> delegate;
-
-
-
+@property (nonatomic,weak) id <DetailVCDelegate> delegate;
 
 
 @end

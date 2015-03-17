@@ -40,8 +40,6 @@
 }
 
 
-
-
 - (IBAction)actionAddCity:(id)sender {
     NSLog(@"Click!");
     
@@ -54,8 +52,7 @@
     
         [self.delegate reloadTableData];
         [self.navigationController popToRootViewControllerAnimated:YES];
- 
-        
+         
     } else {
         // self.cityText.borderStyle = UITextBorderStyleNone;
         UIColor *color = [UIColor colorWithRed:255/255.0f green:163/255.0f blue:145/255.0f alpha:1.0f];

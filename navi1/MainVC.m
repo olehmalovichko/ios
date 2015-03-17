@@ -135,20 +135,5 @@
 }
 
 
-- (IBAction)button2:(id)sender {
-    NSLog(@"click button2");
-    
-    DetailVC *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailVC"];
-    secondViewController.delegate = self;
-    [self showViewController:secondViewController sender:self];
-    
-    
-    
-//    WeatherCityVC *weatherCityVC = [self.storyboard instantiateViewControllerWithIdentifier:@"WeatherCityVC"];
-//    
-//    weatherCityVC.city = cellCity;
-//    
-//    NSLog(@"city: %@",cellCity.nameCity);
-//    [self showViewController:weatherCityVC sender:self];
-}
+
 @end

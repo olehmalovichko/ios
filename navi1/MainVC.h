@@ -11,8 +11,7 @@
 #import "DetailVC.h"
 
 
-
-@interface MainVC : UIViewController <UITableViewDelegate, UITableViewDataSource,DetailVCDElegate>
+@interface MainVC : UIViewController <UITableViewDelegate, UITableViewDataSource,DetailVCDelegate>
 
 //@property (nonatomic, strong) id Delegate;
 
