@@ -17,25 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="tmpLabel" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29i-Ux-T4c">
-                                <rect key="frame" x="150" y="79" width="300" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dAH-Ln-fvh">
-                                <rect key="frame" x="143" y="115" width="315" height="441"/>
+                                <rect key="frame" x="143" y="64" width="315" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="13" y="110" width="374" height="460"/>
                                 </variation>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flag.png" translatesAutoresizingMaskIntoConstraints="NO" id="b67-em-SmN">
+                                <rect key="frame" x="5" y="64" width="25" height="17"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="29i-Ux-T4c" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="4vd-1i-snY"/>
-                            <constraint firstItem="dAH-Ln-fvh" firstAttribute="top" secondItem="29i-Ux-T4c" secondAttribute="bottom" constant="15" id="5Ak-f5-E3W"/>
-                            <constraint firstAttribute="centerX" secondItem="29i-Ux-T4c" secondAttribute="centerX" id="78R-UK-y7D"/>
                             <constraint firstAttribute="centerY" secondItem="dAH-Ln-fvh" secondAttribute="centerY" id="crt-fb-ufA"/>
                             <constraint firstAttribute="centerX" secondItem="dAH-Ln-fvh" secondAttribute="centerX" id="idb-S6-4Ed"/>
                         </constraints>
@@ -71,7 +65,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableCity" destination="dAH-Ln-fvh" id="bqd-Ab-zvM"/>
-                        <outlet property="testLabel" destination="29i-Ux-T4c" id="W9j-tT-tx8"/>
                         <segue destination="2Ee-V0-A88" kind="show" identifier="showDetails" id="em9-dZ-Xbg"/>
                     </connections>
                 </viewController>
@@ -251,4 +244,7 @@
             <point key="canvasLocation" x="291" y="-16"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="flag.png" width="125" height="66"/>
+    </resources>
 </document>
