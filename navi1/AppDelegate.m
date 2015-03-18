@@ -16,7 +16,7 @@
 
 @implementation AppDelegate
 
-// FIXME начать разбираться с autolayout
+// FIXME начать разбираться с autolayout +
 // FIXME встроить cocoapods
 // FIXME разобраться с SmartGit
 
