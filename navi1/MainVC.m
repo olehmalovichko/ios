@@ -12,6 +12,7 @@
 #import "CityClass.h"
 #import "AppDelegate.h"
 #import "DetailVC.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 
 @interface MainVC () 
@@ -59,12 +60,20 @@
     }
     
     CityClass *tclass = [self.tableData objectAtIndex:indexPath.row];
+                     
     
     cell.textLabel.text =  [NSString stringWithFormat:@"%@  %@%@C",tclass.nameCity,tclass.tempCity,@"\u00B0" ];
     
     //http://openweathermap.org/img/w/10d.png
     
-    cell.imageView.image = tclass.image;
+    //cell.imageView.image = tclass.image;
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png",tclass.icon]];
+      NSLog(@"icon---:%@",tclass.icon);
+    
+    [cell.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"placeholder"] options:indexPath.row == 0 ? SDWebImageRefreshCached : 0];
+    
+
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;

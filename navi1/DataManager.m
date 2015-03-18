@@ -156,14 +156,12 @@
         
         
         //get icon
-        NSString *ImageUrl = [NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png",city.icon];
-        NSURL* url = [NSURL URLWithString:ImageUrl];
-        //          self.imageWeather = [NSData dataWithContentsOfURL:url];
-        NSData *imageData = [NSData dataWithContentsOfURL:url];
-        city.image = [UIImage imageWithData:imageData];
-        //        self.weather = (NSDictionary *)responseObject;
-        //        self.title = @"JSON Retrieved";(NSDictionary *)responseObject;
-        //[self.tableView reloadData];
+//        NSString *ImageUrl = [NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png",city.icon];
+//        NSURL* url = [NSURL URLWithString:ImageUrl];
+//        //          self.imageWeather = [NSData dataWithContentsOfURL:url];
+//        NSData *imageData = [NSData dataWithContentsOfURL:url];
+//        city.image = [UIImage imageWithData:imageData];
+
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather"
