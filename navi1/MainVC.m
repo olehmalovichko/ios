@@ -22,8 +22,6 @@
 @property (nonatomic, strong) NSURLSessionDownloadTask *downloadTask;
 - (IBAction)UpdateWeather:(id)sender;
 
-//@property (strong,nonatomic) IBOutlet UITableView *table;
-//- (IBAction)button2:(id)sender;
 
 @end
 
@@ -38,7 +36,6 @@
     self.tableData = [DataManager allCities];
     self.tableCity.dataSource = self;
     self.tableCity.delegate = self;
-//    self.detailview.delegate = self;
     
 }
 
