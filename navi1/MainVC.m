@@ -39,9 +39,13 @@
     self.tableCity.delegate = self;
     //DataManager.delegate = self;
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
-    self.tableCity.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background_city"]];
+    self.tableCity.contentMode = UIViewContentModeScaleToFill;
+    self.tableCity.clipsToBounds= YES;
+    self.tableCity.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background_city"]];
 
+    
+    
     //self.tableCity.backgroundView = nil;
     //[[UIColor alloc] initWithWhite:1 alpha:0.0];
     //[UIColor clearColor];
