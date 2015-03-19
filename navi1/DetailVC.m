@@ -23,6 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //DetailVC.delegate = self;
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
+    
     
     // Do any additional setup after loading the view.
 }

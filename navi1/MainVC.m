@@ -33,12 +33,24 @@
     [super viewDidLoad];
     NSLog(@"---start---");
     NSLog(NSLocalizedString(@"weather", nil));
-    
+ 
     self.tableData = [DataManager allCities];
     self.tableCity.dataSource = self;
     self.tableCity.delegate = self;
     //DataManager.delegate = self;
     
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
+    self.tableCity.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
+
+    //self.tableCity.backgroundView = nil;
+    //[[UIColor alloc] initWithWhite:1 alpha:0.0];
+    //[UIColor clearColor];
+    //self.tableCity.opaque = NO;
+    //self.tableCity.backgroundColor =[UIColor clearColor];
+    //UIImageView *imageview = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"background"]];
+    //self.tableCity.opaque = NO;
+    //self.tableCity.backgroundView = imageview;
+    //self.tableCity.backgroundColor =[UIColor clearColor];
     
 }
 
@@ -79,6 +91,8 @@
 //    
 
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    cell.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.35];
     
     return cell;
 }
