@@ -34,6 +34,7 @@
     NSLog(@"---start---");
     NSLog(NSLocalizedString(@"weather", nil));
  
+    //delete !!!
     self.tableData = [DataManager allCities];
     self.tableCity.dataSource = self;
     self.tableCity.delegate = self;
