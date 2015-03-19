@@ -20,7 +20,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableCity;
 @property (strong, nonatomic) NSArray *tableData;
-@property (nonatomic, strong) NSURLSessionDownloadTask *downloadTask;
+//@property (nonatomic, strong) NSURLSessionDownloadTask *downloadTask;
 - (IBAction)UpdateWeather:(id)sender;
 
 
@@ -37,6 +37,8 @@
     self.tableData = [DataManager allCities];
     self.tableCity.dataSource = self;
     self.tableCity.delegate = self;
+    //DataManager.delegate = self;
+    
     
 }
 

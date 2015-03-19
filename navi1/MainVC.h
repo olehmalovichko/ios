@@ -8,9 +8,9 @@
 #import <UIKit/UIKit.h>
 #import "CityClass.h"
 #import "DetailVC.h"
+#import "DataManager.h"
 
-
-@interface MainVC : UIViewController <UITableViewDelegate, UITableViewDataSource,DetailVCDelegate>
+@interface MainVC : UIViewController <UITableViewDelegate, UITableViewDataSource,DetailVCDelegate,DataManagerVCDelegate>
 
 //@property (nonatomic, strong) id Delegate;
 

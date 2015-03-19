@@ -15,7 +15,6 @@
 @implementation DataManager
 
 
-
 // check city
 + (BOOL)citiesExist {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -142,19 +141,19 @@
         NSDictionary *weather = Weather.lastObject;
         city.weather = weather[@"description"];
         city.icon = weather[@"icon"];
-        
-        NSLog(@"description:%@",city.weather);
-        NSLog(@"icon:%@",city.icon);
-        
+      
         NSDate *date = [NSDate date];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init] ;
         [dateFormatter setDateStyle:NSDateFormatterLongStyle];
         [dateFormatter setDateFormat:@"dd MMM YYYY, hh:mm"];
         city.dateTemp = [dateFormatter stringFromDate:date];
         
-        NSLog(@"%@  %@", city.nameCity,city.tempCity);
-        
-        
+        NSLog(@"-------------------");
+        NSLog(@"city:%@", city.nameCity);
+        NSLog(@"temp:%@", city.tempCity);
+        NSLog(@"description:%@",city.weather);
+        NSLog(@"icon:%@",city.icon);
+        NSLog(@"-------------------");
         //get icon
 //        NSString *ImageUrl = [NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png",city.icon];
 //        NSURL* url = [NSURL URLWithString:ImageUrl];
@@ -176,6 +175,8 @@
     }];
     
     [operation start];
+    
+    
     
     //----------------------------------
     
