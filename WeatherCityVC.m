@@ -7,6 +7,7 @@
 //
 
 #import "WeatherCityVC.h"
+#import "UIImageView+WebCache.h"
 
 @interface WeatherCityVC ()
 
@@ -24,7 +25,9 @@
     self.labelTempCity.text = [NSString stringWithFormat:@"%@%@C", self.city.tempCity,@"\u00B0"];
     self.labelData.text = [NSString stringWithFormat:NSLocalizedString(@"updated: %@", nil),self.city.dateTemp];
     self.labelWeather.text = self.city.weather;
-    self.imageWeather.image  = self.city.image;
+    
+//    self.imageWeather.image  = self.city.image;
+    [self.imageWeather sd_setImageWithURL:self.city.weatherIconURL];
     
     NSLog(@"city2: %@",self.city.nameCity);
     NSLog(@"temp2: %@",self.city.tempCity);

@@ -20,5 +20,8 @@
 @property (nonatomic, strong) UIImage *image; 
 
 + (CityClass *)cityWithId:(NSString *)identifier name:(NSString *)name;
++ (CityClass *)cityWithDictionary:(NSDictionary *)dict;
+
+- (NSURL *)weatherIconURL;
 
 @end

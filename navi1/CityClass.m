@@ -26,6 +26,33 @@
     }
 }
 
++ (CityClass *)cityWithDictionary:(NSDictionary *)dict {
+    CityClass *city = [CityClass new];
+
+    city.nameCity = dict[@"name"];
+    city.idCity = dict[@"id"];
+    
+    NSDictionary *mainDetails = [dict objectForKey:@"main"];
+    city.tempCity = [mainDetails objectForKey:@"temp"] ;
+    
+    NSArray *Weather = [dict objectForKey:@"weather"];
+    NSDictionary *weather = Weather.lastObject;
+    city.weather = weather[@"description"];
+    city.icon = weather[@"icon"];
+    
+    NSLog(@"description:%@",city.weather);
+    NSLog(@"icon:%@",city.icon);
+    
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterLongStyle];
+    [dateFormatter setDateFormat:@"dd MMM YYYY, hh:mm"];
+    city.dateTemp = [dateFormatter stringFromDate:date];
+    
+    NSLog(@"%@  %@", city.nameCity,city.tempCity);
+    return city;
+}
+
 - (void)encodeWithCoder:(NSCoder *)encoder {
     //encode properties,variables, etc...
     [encoder encodeObject:self.nameCity forKey:@"nameCity"];
@@ -49,10 +76,13 @@
         self.dateTemp = [decoder decodeObjectForKey:@"dateTemp"];
         self.weather = [decoder decodeObjectForKey:@"weather"];
         self.image = [decoder decodeObjectForKey:@"image"];
+        self.icon = [decoder decodeObjectForKey:@"icon"];
     }
     return self;
 }
 
-
+- (NSURL *)weatherIconURL {
+    return [NSURL URLWithString:[NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png", self.icon]];
+}
 
 @end

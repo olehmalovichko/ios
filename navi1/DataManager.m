@@ -11,7 +11,7 @@
 #import "MainVC.h"
 #import  "AFNetworking.h"
 
-
+// FIXME image для города уже не нужен и не нужно его грузить
 @implementation DataManager
 
 
@@ -119,6 +119,24 @@
 
 #pragma mark getWeather
 
++ (void)requestWeatherForCityWithId:(NSNumber *)identifier completion:(void (^)(CityClass *city , NSError *error))completion {
+    NSString *baseURL = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?id=%@&units=metric&lang=ru",identifier];
+    NSURL *url = [NSURL URLWithString:baseURL];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        CityClass *city = [CityClass cityWithDictionary:responseObject];
+        completion(city, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil, error);
+    }];
+    
+    [operation start];
+}
+
 + (BOOL)getWeather:(CityClass *)city {
     
     
@@ -224,11 +242,11 @@
     
     
                 //get icon
-                NSString *ImageUrl = [NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png",city.icon];
-                NSURL* url = [NSURL URLWithString:ImageUrl];
-                //          self.imageWeather = [NSData dataWithContentsOfURL:url];
-                NSData *imageData = [NSData dataWithContentsOfURL:url];
-                city.image = [UIImage imageWithData:imageData];
+//                NSString *ImageUrl = [NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png",city.icon];
+//                NSURL* url = [NSURL URLWithString:ImageUrl];
+//                //          self.imageWeather = [NSData dataWithContentsOfURL:url];
+//                NSData *imageData = [NSData dataWithContentsOfURL:url];
+//                city.image = [UIImage imageWithData:imageData];
                 
             }
             

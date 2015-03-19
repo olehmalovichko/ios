@@ -19,5 +19,7 @@
 + (CityClass *)requestCityWithId:(NSString *)identifier;
 + (BOOL)getWeather:(CityClass *)city;
 
++ (void)requestWeatherForCityWithId:(NSNumber *)identifier completion:(void (^)(CityClass *city , NSError *error))completion;
+
 
 @end
