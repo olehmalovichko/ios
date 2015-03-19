@@ -10,12 +10,8 @@
 #import "CityClass.h"
 
 
-@protocol DataManagerVCDelegate <NSObject>
-- (void)reloadTableData;
-@end
-
 @interface DataManager : NSObject
-@property (nonatomic,weak) id <DataManagerVCDelegate> delegate;
+
 
 + (NSArray *)allCities;
 + (void)addCity:(CityClass *)city;

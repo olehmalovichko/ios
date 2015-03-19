@@ -10,7 +10,7 @@
 #import "DetailVC.h"
 #import "DataManager.h"
 
-@interface MainVC : UIViewController <UITableViewDelegate, UITableViewDataSource,DetailVCDelegate,DataManagerVCDelegate>
+@interface MainVC : UIViewController <UITableViewDelegate, UITableViewDataSource,DetailVCDelegate>
 
 //@property (nonatomic, strong) id Delegate;
 

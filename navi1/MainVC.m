@@ -69,12 +69,18 @@
     //http://openweathermap.org/img/w/10d.png
     
     //cell.imageView.image = tclass.image;
-    cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png",tclass.icon]];
-      NSLog(@"icon---:%@",tclass.icon);
+    NSString *ImageUrl = [NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png",tclass.icon];
+    NSURL* url = [NSURL URLWithString:ImageUrl];
+    //          self.imageWeather = [NSData dataWithContentsOfURL:url];
+    NSData *imageData = [NSData dataWithContentsOfURL:url];
+    cell.imageView.image = [UIImage imageWithData:imageData];
     
-    [cell.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"placeholder"] options:indexPath.row == 0 ? SDWebImageRefreshCached : 0];
-    
+//    cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
+//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png",tclass.icon]];
+//      NSLog(@"icon---:%@",tclass.icon);
+//    
+//    [cell.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"placeholder"] options:indexPath.row == 0 ? SDWebImageRefreshCached : 0];
+//    
 
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
