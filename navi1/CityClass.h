@@ -1,6 +1,5 @@
 //
 //  CityClass.h
-//  navi1
 //
 //  Created by admin on 09.03.15.
 //  Copyright (c) 2015 admin. All rights reserved.
@@ -17,11 +16,12 @@
 @property (nonatomic, strong) NSString *dateTemp;
 @property (nonatomic, strong) NSString *weather;
 @property (nonatomic, strong) NSString *icon;
-@property (nonatomic, strong) UIImage *image; 
+//@property (nonatomic, strong) UIImage *image;
 
 + (CityClass *)cityWithId:(NSString *)identifier name:(NSString *)name;
 + (CityClass *)cityWithDictionary:(NSDictionary *)dict;
 
 - (NSURL *)weatherIconURL;
++ (NSURL *)weatherBaseURL:(NSString *)identifier;
 
 @end

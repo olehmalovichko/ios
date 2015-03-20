@@ -1,6 +1,5 @@
 //
 //  DataManager.m
-//  Weather
 //
 //  Created by admin on 12.03.15.
 //  Copyright (c) 2015 admin. All rights reserved.
@@ -11,7 +10,6 @@
 #import "MainVC.h"
 #import  "AFNetworking.h"
 
-// FIXME image для города уже не нужен и не нужно его грузить
 @implementation DataManager
 
 
@@ -98,10 +96,10 @@
 + (CityClass *)requestCityWithId:(NSString *)identifier {
     
     //http://api.openweathermap.org/data/2.5/weather?id=696050&units=metric&lang=ru
-    NSString *url = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?id=%@&units=metric&lang=ru", identifier];
+    //NSString *url = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?id=%@&units=metric&lang=ru", identifier];
+   // NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:url]];
+   NSData  *data = [[NSData alloc] initWithContentsOfURL:[CityClass weatherBaseURL:identifier] ];
     
-    
-    NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:url]];
     
     if (!data) {
         return nil;
@@ -124,10 +122,13 @@
 
 #pragma mark getWeather
 
-+ (void)requestWeatherForCityWithId:(NSNumber *)identifier completion:(void (^)(CityClass *city , NSError *error))completion {
-    NSString *baseURL = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?id=%@&units=metric&lang=ru",identifier];
-    NSURL *url = [NSURL URLWithString:baseURL];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
++ (void)requestWeatherForCityWithId:(NSString *)identifier completion:(void (^)(CityClass *city , NSError *error))completion {
+    
+    //NSString *baseURL = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?id=%@&units=metric&lang=ru",identifier];
+    //NSURL *url = [NSURL URLWithString:baseURL];
+  
+    //NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSURLRequest *request = [NSURLRequest requestWithURL: [CityClass weatherBaseURL:identifier]];
 
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];

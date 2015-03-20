@@ -1,6 +1,5 @@
 //
 //  DataManager.h
-//  Weather
 //
 //  Created by admin on 12.03.15.
 //  Copyright (c) 2015 admin. All rights reserved.
@@ -18,7 +17,6 @@
 + (void)deleteCity:(CityClass *)city;
 + (CityClass *)requestCityWithId:(NSString *)identifier;
 + (BOOL)getWeather:(CityClass *)city;
-
 + (void)requestWeatherForCityWithId:(NSNumber *)identifier completion:(void (^)(CityClass *city , NSError *error))completion;
 
 

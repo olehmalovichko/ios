@@ -1,6 +1,5 @@
 //
 //  CityClass.m
-//  navi1
 //
 //  Created by admin on 09.03.15.
 //  Copyright (c) 2015 admin. All rights reserved.
@@ -28,7 +27,7 @@
 
 + (CityClass *)cityWithDictionary:(NSDictionary *)dict {
     CityClass *city = [CityClass new];
-
+    
     city.nameCity = dict[@"name"];
     city.idCity = dict[@"id"];
     
@@ -40,16 +39,16 @@
     city.weather = weather[@"description"];
     city.icon = weather[@"icon"];
     
-    NSLog(@"description:%@",city.weather);
-    NSLog(@"icon:%@",city.icon);
-    
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
     [dateFormatter setDateFormat:@"dd MMM YYYY, hh:mm"];
     city.dateTemp = [dateFormatter stringFromDate:date];
     
-    NSLog(@"%@  %@", city.nameCity,city.tempCity);
+    NSLog(@"---city:%@  t=%@", city.nameCity,city.tempCity);
+    NSLog(@"---description:%@",city.weather);
+    NSLog(@"---icon:%@",city.icon);
+    
     return city;
 }
 
@@ -60,8 +59,6 @@
     [encoder encodeObject:self.tempCity forKey:@"tempCity"];
     [encoder encodeObject:self.dateTemp forKey:@"dateTemp"];
     [encoder encodeObject:self.weather forKey:@"weather"];
-//    [encoder encodeObject:self.imageWeather forKey:@"imageWeather"];
-    [encoder encodeObject:self.image forKey:@"image"];
     [encoder encodeObject:self.icon forKey:@"icon"];
     
 }
@@ -75,7 +72,6 @@
         self.tempCity = [decoder decodeObjectForKey:@"tempCity"];
         self.dateTemp = [decoder decodeObjectForKey:@"dateTemp"];
         self.weather = [decoder decodeObjectForKey:@"weather"];
-        self.image = [decoder decodeObjectForKey:@"image"];
         self.icon = [decoder decodeObjectForKey:@"icon"];
     }
     return self;
@@ -83,6 +79,12 @@
 
 - (NSURL *)weatherIconURL {
     return [NSURL URLWithString:[NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png", self.icon]];
+}
+
++ (NSURL *)weatherBaseURL:(NSString *)idCity {
+    NSLog(@"%@",[NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?id=%@&units=metric&lang=ru", idCity]);
+    
+    return [NSURL URLWithString:[NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?id=%@&units=metric&lang=ru",idCity]];
 }
 
 @end
