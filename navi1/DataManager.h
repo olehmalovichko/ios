@@ -15,7 +15,7 @@
 + (NSArray *)allCities;
 + (void)addCity:(CityClass *)city;
 + (void)deleteCity:(CityClass *)city;
-+ (CityClass *)requestCityWithId:(NSString *)identifier;
+//+ (CityClass *)requestCityWithId:(NSString *)identifier;
 + (BOOL)getWeather:(CityClass *)city;
 + (void)requestWeatherForCityWithId:(NSNumber *)identifier completion:(void (^)(CityClass *city , NSError *error))completion;
 

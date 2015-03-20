@@ -91,34 +91,34 @@
 
 
 #pragma mark requestCityWithId
-
-// get city with id
-+ (CityClass *)requestCityWithId:(NSString *)identifier {
-    
-    //http://api.openweathermap.org/data/2.5/weather?id=696050&units=metric&lang=ru
-    //NSString *url = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?id=%@&units=metric&lang=ru", identifier];
-   // NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:url]];
-   NSData  *data = [[NSData alloc] initWithContentsOfURL:[CityClass weatherBaseURL:identifier] ];
-    
-    
-    if (!data) {
-        return nil;
-    } else {
-        NSError *error;
-        NSMutableDictionary *dict = [NSJSONSerialization
-                                     JSONObjectWithData:data
-                                     options:NSJSONReadingMutableContainers
-                                     error:&error];
-        if (error) {
-            NSLog(@"Error: %@", [error localizedDescription]);
-            return nil;
-        } else {
-            NSLog(@"%@", dict);
-            // FIXME: распарсить
-            return [CityClass new];
-        }
-    }
-}
+//
+//// get city with id
+//+ (CityClass *)requestCityWithId:(NSString *)identifier {
+//    
+//    //http://api.openweathermap.org/data/2.5/weather?id=696050&units=metric&lang=ru
+//    //NSString *url = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?id=%@&units=metric&lang=ru", identifier];
+//   // NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:url]];
+//   NSData  *data = [[NSData alloc] initWithContentsOfURL:[CityClass weatherBaseURL:identifier] ];
+//    
+//    
+//    if (!data) {
+//        return nil;
+//    } else {
+//        NSError *error;
+//        NSMutableDictionary *dict = [NSJSONSerialization
+//                                     JSONObjectWithData:data
+//                                     options:NSJSONReadingMutableContainers
+//                                     error:&error];
+//        if (error) {
+//            NSLog(@"Error: %@", [error localizedDescription]);
+//            return nil;
+//        } else {
+//            NSLog(@"%@", dict);
+//            // FIXME: распарсить
+//            return [CityClass new];
+//        }
+//    }
+//}
 
 #pragma mark getWeather
 

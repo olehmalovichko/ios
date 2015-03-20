@@ -16,7 +16,6 @@
 @property (nonatomic, strong) NSString *dateTemp;
 @property (nonatomic, strong) NSString *weather;
 @property (nonatomic, strong) NSString *icon;
-//@property (nonatomic, strong) UIImage *image;
 
 + (CityClass *)cityWithId:(NSString *)identifier name:(NSString *)name;
 + (CityClass *)cityWithDictionary:(NSDictionary *)dict;
