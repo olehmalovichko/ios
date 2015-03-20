@@ -182,5 +182,6 @@
     
     //self.tableData = [DataManager allCities];
     [self.tableCity reloadData];
+     NSLog(@"--update complete--");
 }
 @end

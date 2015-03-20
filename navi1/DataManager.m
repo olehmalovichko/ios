@@ -78,7 +78,12 @@
 + (void)deleteCity:(CityClass *)city {
     
     NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[self allCities]];
-    [mutableArray removeObject:city];
+    NSLog(@"%lu",(unsigned long)[mutableArray indexOfObject:city]);
+    NSUInteger index= [mutableArray indexOfObject:city];
+    //NSString *sss = [mutableArray valueForKey:@"idCity"];
+//    NSUInteger objIdx = [mutableArray indexOfObject: city];
+//    [mutableArray removeObject:city];
+    [mutableArray removeObjectAtIndex: index-1];
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:[NSArray arrayWithArray:mutableArray]];
     [prefs setObject:myEncodedObject forKey:@"allCities"];
