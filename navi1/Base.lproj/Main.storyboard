@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zNP-wx-nn7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zNP-wx-nn7">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
@@ -19,13 +19,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_city" translatesAutoresizingMaskIntoConstraints="NO" id="0V0-1i-BmD">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag.png" translatesAutoresizingMaskIntoConstraints="NO" id="IiC-Vt-A4H">
-                                <rect key="frame" x="0.0" y="64" width="30" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="BD0-sO-Bc4"/>
-                                    <constraint firstAttribute="height" constant="18" id="x5l-Nh-i3h"/>
-                                </constraints>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dAH-Ln-fvh">
                                 <rect key="frame" x="0.0" y="82" width="600" height="518"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -33,19 +26,30 @@
                                     <rect key="frame" x="13" y="110" width="374" height="460"/>
                                 </variation>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag.png" translatesAutoresizingMaskIntoConstraints="NO" id="IiC-Vt-A4H">
+                                <rect key="frame" x="0.0" y="64" width="30" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="BD0-sO-Bc4"/>
+                                    <constraint firstAttribute="height" constant="18" id="x5l-Nh-i3h"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0V0-1i-BmD" secondAttribute="bottom" id="0e9-2x-7Bk"/>
+                            <constraint firstItem="dAH-Ln-fvh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="1IZ-Aq-QzU"/>
                             <constraint firstItem="IiC-Vt-A4H" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="3c9-eK-qry"/>
                             <constraint firstItem="0V0-1i-BmD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="49K-Kd-gC9"/>
                             <constraint firstAttribute="trailing" secondItem="0V0-1i-BmD" secondAttribute="trailing" id="4tO-ST-FSl"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dAH-Ln-fvh" secondAttribute="bottom" id="6DH-5T-sLG"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dAH-Ln-fvh" secondAttribute="bottom" id="78F-Qg-eUi"/>
                             <constraint firstAttribute="trailing" secondItem="dAH-Ln-fvh" secondAttribute="trailing" id="Bde-zU-W0t"/>
                             <constraint firstItem="dAH-Ln-fvh" firstAttribute="top" secondItem="IiC-Vt-A4H" secondAttribute="bottom" id="D1d-v0-tJX"/>
                             <constraint firstItem="IiC-Vt-A4H" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FDU-Ax-LSf"/>
+                            <constraint firstItem="dAH-Ln-fvh" firstAttribute="top" secondItem="IiC-Vt-A4H" secondAttribute="bottom" id="GRb-b1-gAc"/>
                             <constraint firstItem="dAH-Ln-fvh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QS4-dr-Hmm"/>
                             <constraint firstItem="0V0-1i-BmD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="oa9-AK-LDo"/>
+                            <constraint firstAttribute="trailing" secondItem="dAH-Ln-fvh" secondAttribute="trailing" id="z4O-D6-qln"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Bgu-wL-Ajh">
