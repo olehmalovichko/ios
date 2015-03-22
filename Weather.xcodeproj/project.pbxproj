@@ -12,6 +12,7 @@
 		843D55331AB01DB900EEB236 /* WeatherCityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D55321AB01DB900EEB236 /* WeatherCityVC.m */; };
 		84463EDF1AADD85B00025731 /* CityClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 84463EDE1AADD85B00025731 /* CityClass.m */; };
 		84BBBB431AB6213900C74309 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84BBBB421AB6213900C74309 /* Media.xcassets */; };
+		84BF4DE11ABF335F0071FF62 /* CityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF4DE01ABF335F0071FF62 /* CityCell.m */; };
 		84C0D6861AAA1CE80040DC3A /* DetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C0D6851AAA1CE80040DC3A /* DetailVC.m */; };
 		84C3E72E1AB2312600EC095F /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C3E72D1AB2312600EC095F /* DataManager.m */; };
 		84F4856D1AA996830019CC75 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F4856C1AA996830019CC75 /* main.m */; };
@@ -48,6 +49,8 @@
 		84463EDD1AADD85B00025731 /* CityClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityClass.h; sourceTree = "<group>"; };
 		84463EDE1AADD85B00025731 /* CityClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityClass.m; sourceTree = "<group>"; };
 		84BBBB421AB6213900C74309 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		84BF4DDF1ABF335F0071FF62 /* CityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityCell.h; sourceTree = "<group>"; };
+		84BF4DE01ABF335F0071FF62 /* CityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityCell.m; sourceTree = "<group>"; };
 		84C0D6841AAA1CE80040DC3A /* DetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVC.h; sourceTree = "<group>"; };
 		84C0D6851AAA1CE80040DC3A /* DetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVC.m; sourceTree = "<group>"; };
 		84C3E72C1AB2312600EC095F /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
@@ -112,6 +115,8 @@
 			children = (
 				84463EDD1AADD85B00025731 /* CityClass.h */,
 				84463EDE1AADD85B00025731 /* CityClass.m */,
+				84BF4DDF1ABF335F0071FF62 /* CityCell.h */,
+				84BF4DE01ABF335F0071FF62 /* CityCell.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -381,6 +386,7 @@
 				84C0D6861AAA1CE80040DC3A /* DetailVC.m in Sources */,
 				84F485701AA996830019CC75 /* AppDelegate.m in Sources */,
 				84F4856D1AA996830019CC75 /* main.m in Sources */,
+				84BF4DE11ABF335F0071FF62 /* CityCell.m in Sources */,
 				84463EDF1AADD85B00025731 /* CityClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

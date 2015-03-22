@@ -15,7 +15,5 @@
 //@property (nonatomic, strong) id Delegate;
 
 
-
-
 @end
 

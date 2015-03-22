@@ -13,7 +13,7 @@
 #import "AppDelegate.h"
 #import "DetailVC.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-
+#import "CityCell.h"
 
 @interface MainVC () 
 
@@ -22,7 +22,10 @@
 @property (strong, nonatomic) NSArray *tableData;
 //@property (nonatomic, strong) NSURLSessionDownloadTask *downloadTask;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
+
+
 - (IBAction)UpdateWeather:(id)sender;
+
 
 
 @end
@@ -79,23 +82,29 @@
 #pragma mark - UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+
+    //static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    static NSString *CellIdentifier = @"idCell";
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    CityCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-    }
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+//    }
     
     CityClass *tclass = [self.tableData objectAtIndex:indexPath.row];
-                     
     
-    cell.textLabel.text =  [NSString stringWithFormat:@"%@  %@%@C",tclass.nameCity,tclass.tempCity,@"\u00B0" ];
+    //cell.textLabel.text =  [NSString stringWithFormat:@"%@  %@%@C",tclass.nameCity,tclass.tempCity,@"\u00B0" ];
     
+    cell.nameCity.text = [NSString stringWithFormat:@"%@",tclass.nameCity];
+    cell.tempCity.text = [NSString stringWithFormat:@"%@%@C",tclass.tempCity,@"\u00B0" ];
     //http://openweathermap.org/img/w/10d.png
     
 //    cell.imageView.image = tclass.image;
-    [cell.imageView sd_setImageWithURL:tclass.weatherIconURL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    
+    [cell.imageCity sd_setImageWithURL:tclass.weatherIconURL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         [cell setNeedsLayout];
     }];
     
