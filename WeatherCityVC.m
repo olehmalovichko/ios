@@ -22,7 +22,8 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
     
     self.labelCityName.text = self.city.nameCity;
-    self.labelTempCity.text = [NSString stringWithFormat:@"%@%@C", self.city.tempCity,@"\u00B0"];
+    ///self.labelTempCity.text = [NSString stringWithFormat:@"%@%@C", self.city.tempCity,@"\u00B0"];
+    self.labelTempCity.text =  [NSString stringWithFormat:@"%1.1f%@C",self.city.tempCity.floatValue ,@"\u00B0" ];
     self.labelData.text = [NSString stringWithFormat:NSLocalizedString(@"updated: %@", nil),self.city.dateTemp];
     self.labelWeather.text = self.city.weather;
     

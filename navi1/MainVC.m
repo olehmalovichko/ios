@@ -99,7 +99,10 @@
     //cell.textLabel.text =  [NSString stringWithFormat:@"%@  %@%@C",tclass.nameCity,tclass.tempCity,@"\u00B0" ];
     
     cell.nameCity.text = [NSString stringWithFormat:@"%@",tclass.nameCity];
-    cell.tempCity.text = [NSString stringWithFormat:@"%@%@C",tclass.tempCity,@"\u00B0" ];
+    cell.tempCity.text = [NSString stringWithFormat:@"%1.1f%@C",tclass.tempCity.floatValue ,@"\u00B0" ];
+    //cell.tempCity.text = [NSString stringWithFormat:@"%@%@C",tclass.tempCity,@"\u00B0" ];
+    
+    NSLog(@"%@",cell.tempCity.text);
     //http://openweathermap.org/img/w/10d.png
     
 //    cell.imageView.image = tclass.image;
