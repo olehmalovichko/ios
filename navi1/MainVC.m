@@ -44,6 +44,8 @@
             [self.tableCity reloadData];            
         }
     }];
+    
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -57,6 +59,7 @@
         WeatherCityVC *weatherCityVC = segue.destinationViewController;
         weatherCityVC.city = self.citySelectClass;
     }
+
     
 }
 
@@ -80,9 +83,8 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;  
     cell.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.35];
     
-    self.citySelectClass = [self.tableData objectAtIndex:indexPath.row];
-    
     return cell;
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -95,7 +97,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    self.citySelectClass = [self.tableData objectAtIndex:indexPath.row];
     
+    [self performSegueWithIdentifier:@"showWeather" sender:self];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

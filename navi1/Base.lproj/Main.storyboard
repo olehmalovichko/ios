@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="idCell" id="iNG-de-gIw" customClass="CityCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="idCell" id="iNG-de-gIw" customClass="CityCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iNG-de-gIw" id="9Wa-Wq-pY1">
@@ -38,13 +38,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-- C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqI-z7-TOh">
-                                                    <rect key="frame" x="544" y="16" width="39" height="27"/>
+                                                    <rect key="frame" x="511" y="16" width="39" height="27"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aMs-Xh-OaM">
-                                                    <rect key="frame" x="473" y="3" width="52" height="52"/>
+                                                    <rect key="frame" x="440" y="3" width="52" height="52"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="52" id="Xx8-AX-lbz"/>
                                                         <constraint firstAttribute="width" constant="52" id="y9W-42-Jtk"/>
@@ -71,7 +71,6 @@
                                             <outlet property="imageCity" destination="aMs-Xh-OaM" id="1xY-Od-XEC"/>
                                             <outlet property="nameCity" destination="xFi-p5-46j" id="mu3-a3-EVW"/>
                                             <outlet property="tempCity" destination="vqI-z7-TOh" id="V7f-qf-dt2"/>
-                                            <segue destination="2Ee-V0-A88" kind="show" identifier="showWeather" id="F7H-Q2-d9m"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -133,11 +132,12 @@
                     <connections>
                         <outlet property="backgroundImage" destination="0V0-1i-BmD" id="4rf-cg-vbU"/>
                         <outlet property="tableCity" destination="dAH-Ln-fvh" id="bqd-Ab-zvM"/>
+                        <segue destination="2Ee-V0-A88" kind="show" identifier="showWeather" id="aKT-2j-0P9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="772" y="-45"/>
+            <point key="canvasLocation" x="811" y="-39"/>
         </scene>
         <!--DetailVC-->
         <scene sceneID="UJE-Wt-WU1">
@@ -192,7 +192,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8az-yf-0Ry" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1849" y="-557"/>
+            <point key="canvasLocation" x="1713" y="-825"/>
         </scene>
         <!--Weather CityVC-->
         <scene sceneID="l8u-YM-Rv9">
@@ -263,6 +263,7 @@
                             <constraint firstAttribute="centerX" secondItem="vSa-9Z-Iha" secondAttribute="centerX" id="zWb-xB-jf0"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="k96-oT-hxZ"/>
                     <connections>
                         <outlet property="imageWeather" destination="UGd-hS-92o" id="LQL-Wc-ZSO"/>
                         <outlet property="labelCityName" destination="x8T-n1-Hcl" id="0tT-9B-cj6"/>
@@ -273,7 +274,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ID-qV-jhT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1855" y="295"/>
+            <point key="canvasLocation" x="1754" y="189"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lun-nC-xBU">

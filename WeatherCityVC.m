@@ -1,7 +1,5 @@
 //
 //  WeatherCityVC.m
-//  navi1
-//
 //  Created by admin on 11.03.15.
 //  Copyright (c) 2015 admin. All rights reserved.
 //
@@ -19,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
     
     self.labelCityName.text = self.city.nameCity;

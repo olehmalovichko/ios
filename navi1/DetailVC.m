@@ -22,18 +22,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //DetailVC.delegate = self;
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
-    
-    
-    // Do any additional setup after loading the view.
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     //focus to cityText
     [self.cityText becomeFirstResponder];
-//    [self.view addSubview:self.cityText];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,19 +41,14 @@
     NSLog(@"Click!");
     
     if ([self.cityText.text length])  {
-        
         CityClass *addCityClass = [CityClass cityWithId:@"696050" name:self.cityText.text] ;
-        //[addCityClass getWeather];
-        
         [DataManager addCity:addCityClass];
-    
         [self.delegate reloadTableData];
         [self.navigationController popToRootViewControllerAnimated:YES];
-         
+        
     } else {
         // self.cityText.borderStyle = UITextBorderStyleNone;
         UIColor *color = [UIColor colorWithRed:255/255.0f green:163/255.0f blue:145/255.0f alpha:1.0f];
-        //        [UIColor redColor];
         self.cityText.backgroundColor = color;
         
     }
