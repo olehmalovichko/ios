@@ -16,8 +16,6 @@
 
 @implementation AppDelegate
 
-// FIXME начать разбираться с autolayout +
-// FIXME встроить cocoapods +
 // FIXME разобраться с SmartGit
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

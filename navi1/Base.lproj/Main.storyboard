@@ -71,6 +71,7 @@
                                             <outlet property="imageCity" destination="aMs-Xh-OaM" id="1xY-Od-XEC"/>
                                             <outlet property="nameCity" destination="xFi-p5-46j" id="mu3-a3-EVW"/>
                                             <outlet property="tempCity" destination="vqI-z7-TOh" id="V7f-qf-dt2"/>
+                                            <segue destination="2Ee-V0-A88" kind="show" identifier="showWeather" id="F7H-Q2-d9m"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -136,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1030" y="8"/>
+            <point key="canvasLocation" x="772" y="-45"/>
         </scene>
         <!--DetailVC-->
         <scene sceneID="UJE-Wt-WU1">
@@ -191,7 +192,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8az-yf-0Ry" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1941" y="-21"/>
+            <point key="canvasLocation" x="1849" y="-557"/>
         </scene>
         <!--Weather CityVC-->
         <scene sceneID="l8u-YM-Rv9">
@@ -272,7 +273,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ID-qV-jhT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1150" y="887"/>
+            <point key="canvasLocation" x="1855" y="295"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lun-nC-xBU">
@@ -293,7 +294,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Hx-93-TPk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="291" y="-16"/>
+            <point key="canvasLocation" x="-73" y="-52"/>
         </scene>
     </scenes>
     <resources>

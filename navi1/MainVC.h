@@ -12,8 +12,5 @@
 
 @interface MainVC : UIViewController <UITableViewDelegate, UITableViewDataSource,DetailVCDelegate>
 
-//@property (nonatomic, strong) id Delegate;
-
-
 @end
 
