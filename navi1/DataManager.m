@@ -14,7 +14,7 @@
 
 
 // check city
-+ (BOOL)citiesExist {
++ (BOOL)citiesExist { // FIXME: метод не нужен
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSData *myEncodeObject = [prefs objectForKey:@"allCities"];
     NSArray *cities = (NSArray *)[NSKeyedUnarchiver unarchiveObjectWithData:myEncodeObject];
@@ -73,15 +73,10 @@
 #pragma mark deleteCity
 
 //delete city
-+ (void)deleteCity:(CityClass *)city {
++ (void)deleteCity:(CityClass *)city { // FIXME: нужно пофиксить удаление города
     
     NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[self allCities]];
-    NSLog(@"%lu",(unsigned long)[mutableArray indexOfObject:city]);
-    NSUInteger index= [mutableArray indexOfObject:city];
-    //NSString *sss = [mutableArray valueForKey:@"idCity"];
-//    NSUInteger objIdx = [mutableArray indexOfObject: city];
-//    [mutableArray removeObject:city];
-    [mutableArray removeObjectAtIndex: index-1];
+    [mutableArray removeObject:city];
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:[NSArray arrayWithArray:mutableArray]];
     [prefs setObject:myEncodedObject forKey:@"allCities"];

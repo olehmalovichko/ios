@@ -65,7 +65,7 @@
     [DataManager requestWeatherForCityWithId:[NSNumber numberWithInt:704147] completion:^(CityClass *city, NSError *error) {
         NSLog(@"загрузка завершена");
         if (city) {
-            [DataManager addCity:city];
+            //[DataManager addCity:city];
             [self.tableCity reloadData];            
         }
     }];
@@ -88,7 +88,7 @@
     
     static NSString *CellIdentifier = @"idCell";
     //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    CityCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    CityCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
 //    if (cell == nil) {
 //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
@@ -118,8 +118,7 @@
 //    [cell.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"placeholder"] options:indexPath.row == 0 ? SDWebImageRefreshCached : 0];
 //    
 
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;  
     cell.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.35];
     
     return cell;

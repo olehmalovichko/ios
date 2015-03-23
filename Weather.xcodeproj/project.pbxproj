@@ -115,8 +115,6 @@
 			children = (
 				84463EDD1AADD85B00025731 /* CityClass.h */,
 				84463EDE1AADD85B00025731 /* CityClass.m */,
-				84BF4DDF1ABF335F0071FF62 /* CityCell.h */,
-				84BF4DE01ABF335F0071FF62 /* CityCell.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -142,10 +140,20 @@
 		8442BE0A1AB56C220012EE82 /* MainVC */ = {
 			isa = PBXGroup;
 			children = (
+				8459BCCA1AC07FD50054C124 /* Cell */,
 				84F485711AA996830019CC75 /* MainVC.h */,
 				84F485721AA996830019CC75 /* MainVC.m */,
 			);
 			name = MainVC;
+			sourceTree = "<group>";
+		};
+		8459BCCA1AC07FD50054C124 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				84BF4DDF1ABF335F0071FF62 /* CityCell.h */,
+				84BF4DE01ABF335F0071FF62 /* CityCell.m */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		84C3E7291AB2303800EC095F /* Resources */ = {
