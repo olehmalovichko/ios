@@ -106,7 +106,7 @@
     
     if (allCoursesData==nil) {
         NSLog(@"data=nil");
-        city.tempCity = @"нет данных";
+        city.tempCity = @0;
         
     } else {
         

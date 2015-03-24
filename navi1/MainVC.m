@@ -136,15 +136,10 @@
 - (IBAction)UpdateWeather:(id)sender {
     NSLog(@"--update weather--");
     
-    // FIXME 
     for (CityClass *city in self.tableData) {
-        CityClass *cityUpdate = city;
-        //[DataManager deleteCity:city];
-        [DataManager getWeather:cityUpdate];
-        //[DataManager addCity:cityUpdate];
+        [DataManager getWeather:city];
     }
     
-    //self.tableData = [DataManager allCities];
     [self.tableCity reloadData];
      NSLog(@"--update complete--");
     
