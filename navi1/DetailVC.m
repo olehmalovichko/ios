@@ -41,7 +41,7 @@
     NSLog(@"Click!");
     
     if ([self.cityText.text length])  {
-        CityClass *addCityClass = [CityClass cityWithId:@"696050" name:self.cityText.text] ;
+        CityClass *addCityClass = [CityClass cityWithId:@696050 name:self.cityText.text] ;
         [DataManager addCity:addCityClass];
         [self.delegate reloadTableData];
         [self.navigationController popToRootViewControllerAnimated:YES];

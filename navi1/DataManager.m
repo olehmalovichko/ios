@@ -25,10 +25,10 @@
     if (cities && cities.count) {
         return cities;
     } else {
-        CityClass *city1 = [CityClass cityWithId:@"696050" name:@"Киев"] ;
-        CityClass *city2 = [CityClass cityWithId:@"706483" name:@"Харьков"];
-        CityClass *city3 = [CityClass cityWithId:@"709930" name:@"Днепропетровск"];
-        CityClass *city4 = [CityClass cityWithId:@"704147" name:@"Кременчуг"];
+        CityClass *city1 = [CityClass cityWithId:@696050 name:@"Киев"] ;
+        CityClass *city2 = [CityClass cityWithId:@706483 name:@"Харьков"];
+        CityClass *city3 = [CityClass cityWithId:@709930 name:@"Днепропетровск"];
+        CityClass *city4 = [CityClass cityWithId:@704147 name:@"Кременчуг"];
         
         [DataManager getWeather:city1];
         [DataManager getWeather:city2];

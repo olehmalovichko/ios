@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSString *weather;
 @property (nonatomic, strong) NSString *icon;
 
-+ (CityClass *)cityWithId:(NSString *)identifier name:(NSString *)name;
++ (CityClass *)cityWithId:(NSNumber *)identifier name:(NSString *)name;
 + (CityClass *)cityWithDictionary:(NSDictionary *)dict;
 
 - (NSURL *)weatherIconURL;
