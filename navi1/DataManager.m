@@ -65,10 +65,11 @@
 #pragma mark deleteCity
 
 //delete city
-+ (void)deleteCity:(CityClass *)city { // FIXME: нужно пофиксить удаление города
++ (void)deleteCity:(CityClass *)city { 
     
     NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[self allCities]];
     [mutableArray removeObject:city];
+    
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:[NSArray arrayWithArray:mutableArray]];
     [prefs setObject:myEncodedObject forKey:@"allCities"];

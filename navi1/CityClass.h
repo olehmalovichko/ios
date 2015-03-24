@@ -11,7 +11,7 @@
 @interface CityClass : NSObject
 
 @property (nonatomic, strong) NSString *nameCity;
-@property (nonatomic, strong) NSString *idCity; // FIXME: переделать под NSNumber, это же относится ко всем числовым значения
+@property (nonatomic, strong) NSNumber *idCity; // FIXME: переделать под NSNumber, это же относится ко всем числовым значения
 @property (nonatomic, strong) NSString *tempCity;
 @property (nonatomic, strong) NSString *dateTemp;
 @property (nonatomic, strong) NSString *weather;

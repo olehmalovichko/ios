@@ -10,7 +10,7 @@
 
 @implementation CityClass
 
-+ (CityClass *)cityWithId:(NSString *)identifier name:(NSString *)name {
++ (CityClass *)cityWithId:(NSNumber *)identifier name:(NSString *)name {
     CityClass *city = [CityClass new];
     city.idCity = identifier;
     city.nameCity = name;
@@ -18,7 +18,7 @@
 }
 
 - (BOOL)isEqual:(CityClass *)other {
-    if ([self.idCity isEqualToString:other.idCity]) {
+    if ([self.idCity isEqual:other.idCity]) {
         return YES;
     } else {
         return NO;
