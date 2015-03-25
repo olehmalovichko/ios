@@ -56,10 +56,14 @@
     NSMutableArray *citiesm = [NSMutableArray arrayWithArray:cities];
     
     [citiesm addObject:city];
+    [DataManager getWeather:city];
+    
     
     NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:[NSArray arrayWithArray:citiesm]];
     [prefs setObject:myEncodedObject forKey:@"allCities"];
     [prefs synchronize];
+    
+    [DataManager cityUpdate:city];
 }
 
 #pragma mark deleteCity
@@ -164,8 +168,8 @@
     NSUInteger indexCity = [mutableArray indexOfObject:city];
     [mutableArray replaceObjectAtIndex:indexCity withObject:city];
     
-    NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:[NSArray arrayWithArray:mutableArray]];
-    [prefs setObject:myEncodedObject forKey:@"allCities"];
+    NSData *myDecodeObject = [NSKeyedArchiver archivedDataWithRootObject:[NSArray arrayWithArray:mutableArray]];
+    [prefs setObject:myDecodeObject forKey:@"allCities"];
     [prefs synchronize];
     
 }
