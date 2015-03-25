@@ -138,9 +138,11 @@
     
     for (CityClass *city in self.tableData) {
         [DataManager getWeather:city];
+        [DataManager cityUpdate:city];
     }
     
     [self.tableCity reloadData];
+ 
      NSLog(@"--update complete--");
     
 }

@@ -71,6 +71,7 @@
     [mutableArray removeObject:city];
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
     NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:[NSArray arrayWithArray:mutableArray]];
     [prefs setObject:myEncodedObject forKey:@"allCities"];
     [prefs synchronize];
@@ -150,5 +151,22 @@
     return NO;
 }
 
+#pragma mark cityUpdate
 
++ (void)cityUpdate:(CityClass *)city {
+    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSData *myEncodeObject = [prefs objectForKey:@"allCities"];
+    NSArray *cities = (NSArray *)[NSKeyedUnarchiver unarchiveObjectWithData:myEncodeObject];
+
+    NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:cities];
+    
+    NSUInteger indexCity = [mutableArray indexOfObject:city];
+    [mutableArray replaceObjectAtIndex:indexCity withObject:city];
+    
+    NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:[NSArray arrayWithArray:mutableArray]];
+    [prefs setObject:myEncodedObject forKey:@"allCities"];
+    [prefs synchronize];
+    
+}
 @end

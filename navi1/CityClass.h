@@ -23,4 +23,5 @@
 - (NSURL *)weatherIconURL;
 + (NSURL *)weatherBaseURL:(NSString *)identifier;
 
+
 @end

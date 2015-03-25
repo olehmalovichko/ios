@@ -17,6 +17,7 @@
 + (void)deleteCity:(CityClass *)city;
 + (BOOL)getWeather:(CityClass *)city;
 + (void)requestWeatherForCityWithId:(NSNumber *)identifier completion:(void (^)(CityClass *city , NSError *error))completion;
++ (void)cityUpdate:(CityClass *)city;
 
 
 @end
