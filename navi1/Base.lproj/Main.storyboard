@@ -38,13 +38,16 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-- C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqI-z7-TOh">
-                                                    <rect key="frame" x="511" y="16" width="39" height="27"/>
+                                                    <rect key="frame" x="480" y="16" width="70" height="27"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="70" id="TIo-KM-QQQ"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aMs-Xh-OaM">
-                                                    <rect key="frame" x="440" y="3" width="52" height="52"/>
+                                                    <rect key="frame" x="428" y="3" width="52" height="52"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="52" id="Xx8-AX-lbz"/>
                                                         <constraint firstAttribute="width" constant="52" id="y9W-42-Jtk"/>
@@ -54,7 +57,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="xFi-p5-46j" secondAttribute="trailing" constant="18" id="2h3-06-Qus"/>
                                                 <constraint firstItem="aMs-Xh-OaM" firstAttribute="top" secondItem="9Wa-Wq-pY1" secondAttribute="topMargin" constant="-5" id="8BB-WL-n8m"/>
-                                                <constraint firstItem="vqI-z7-TOh" firstAttribute="leading" secondItem="aMs-Xh-OaM" secondAttribute="trailing" constant="19" id="Gm5-jj-Zfc"/>
+                                                <constraint firstItem="vqI-z7-TOh" firstAttribute="leading" secondItem="aMs-Xh-OaM" secondAttribute="trailing" id="Gm5-jj-Zfc"/>
                                                 <constraint firstItem="xFi-p5-46j" firstAttribute="leading" secondItem="9Wa-Wq-pY1" secondAttribute="leading" constant="8" id="OsT-6Q-Itu"/>
                                                 <constraint firstAttribute="trailing" secondItem="vqI-z7-TOh" secondAttribute="trailing" constant="17" id="aJo-AW-i3P"/>
                                                 <constraint firstItem="aMs-Xh-OaM" firstAttribute="centerY" secondItem="vqI-z7-TOh" secondAttribute="centerY" id="eLO-fW-6bO"/>
