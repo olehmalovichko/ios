@@ -16,7 +16,7 @@
 
 @implementation AppDelegate
 
-// FIXME разобраться с SmartGit
+// FIXME разобраться с SmartGit (processing...)
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
