@@ -95,6 +95,7 @@
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         CityClass *city = [CityClass cityWithDictionary:responseObject];
+        // FIXME мы забыли сохранить новый город в NSUSerDefault
         completion(city, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completion(nil, error);

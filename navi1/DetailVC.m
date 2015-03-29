@@ -41,7 +41,8 @@
     NSLog(@"Click!");
     
     if ([self.cityText.text length])  {
-        CityClass *addCityClass = [CityClass cityWithId:@2643743 name:self.cityText.text] ;
+        // FIXME не дописан функционал
+        CityClass *addCityClass = [CityClass cityWithId:@2643743 name:self.cityText.text];
         [DataManager addCity:addCityClass];
         [self.delegate reloadTableData];
         [self.navigationController popToRootViewControllerAnimated:YES];

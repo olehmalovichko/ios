@@ -82,6 +82,7 @@
 }
 
 + (NSURL *)weatherBaseURL:(NSString *)idCity {
+    // FIXME: если хочешь вывести URL, то делай переменную
     NSLog(@"%@",[NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?id=%@&units=metric&lang=ru", idCity]);
     
     return [NSURL URLWithString:[NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?id=%@&units=metric&lang=ru",idCity]];

@@ -12,6 +12,7 @@
 @end
 
 @interface DetailVC : UIViewController
+// FIXME закинуть переменную в .m
 @property (weak, nonatomic) IBOutlet UITextField *cityText;
 @property (nonatomic,weak) id <DetailVCDelegate> delegate;
 

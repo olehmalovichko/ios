@@ -18,7 +18,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableCity;
 @property (strong, nonatomic) NSArray *tableData;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
-@property (weak, nonatomic) CityClass *citySelectClass;
+
+// FIXME : должна быть strong. Разобраться что такое weak и strong
+@property (weak, nonatomic) CityClass *citySelectClass; // FIXME правильно было бы назвать city или selectedCity
 
 - (IBAction)UpdateWeather:(id)sender;
 
@@ -37,6 +39,8 @@
     self.tableCity.dataSource = self;
     self.tableCity.delegate = self;
     
+    
+    // FIXME почему тестовый код не заремен?
     [DataManager requestWeatherForCityWithId:[NSNumber numberWithInt:704147] completion:^(CityClass *city, NSError *error) {
         NSLog(@"загрузка завершена");
         if (city) {
@@ -133,6 +137,7 @@
 
 #pragma mark - updateWeather
 
+// FIXME функция должна быть с маленькой буквы
 - (IBAction)UpdateWeather:(id)sender {
     NSLog(@"--update weather--");
     
@@ -146,4 +151,5 @@
      NSLog(@"--update complete--");
     
 }
+
 @end
