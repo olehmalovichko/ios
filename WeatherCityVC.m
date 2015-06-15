@@ -19,7 +19,7 @@
     [super viewDidLoad];
     
     // FIXME мы картинки делаем через UIImageView а не через backgroundColor
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
     
     self.labelCityName.text = self.city.nameCity;
     self.labelTempCity.text =  [NSString stringWithFormat:@"%1.1f%@C",self.city.tempCity.floatValue ,@"\u00B0" ];

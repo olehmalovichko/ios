@@ -35,6 +35,15 @@
         [DataManager getWeather:city3];
         [DataManager getWeather:city4];
         
+//        [DataManager requestWeatherForCityWithId:city1.idCity completion:^(CityClass *city, NSError *error) {
+//            NSLog(@"загрузка завершена");  }];
+//        [DataManager requestWeatherForCityWithId:city2.idCity completion:^(CityClass *city, NSError *error) {
+//            NSLog(@"загрузка завершена");  }];
+//        [DataManager requestWeatherForCityWithId:city3.idCity completion:^(CityClass *city, NSError *error) {
+//            NSLog(@"загрузка завершена");  }];
+//        [DataManager requestWeatherForCityWithId:city4.idCity completion:^(CityClass *city, NSError *error) {
+//            NSLog(@"загрузка завершена");  }];
+        
         [self addCity:city1];
         [self addCity:city2];
         [self addCity:city3];
@@ -56,7 +65,9 @@
     NSMutableArray *citiesm = [NSMutableArray arrayWithArray:cities];
     
     [citiesm addObject:city];
-    [DataManager getWeather:city];
+    //[DataManager getWeather:city];
+    [DataManager requestWeatherForCityWithId:city.idCity completion:^(CityClass *city, NSError *error) {
+        NSLog(@"загрузка завершена");  }];
     
     
     NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:[NSArray arrayWithArray:citiesm]];

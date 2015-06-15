@@ -14,12 +14,9 @@
 
 + (NSArray *)allCities;
 + (void)deleteCity:(CityClass *)city;
-
-// FIXME - нужно удалить, потому что у нас есть requestWeatherForCityWithId
++ (void)requestWeatherForCityWithId:(NSNumber *)identifier completion:(void (^)(CityClass *city , NSError *error))completion;
 + (BOOL)getWeather:(CityClass *)city;
 
-
-+ (void)requestWeatherForCityWithId:(NSNumber *)identifier completion:(void (^)(CityClass *city , NSError *error))completion;
 
 // FIXME нам нужен один метод, который будет называться addOrUpdateCity:(City *)city
 + (void)addCity:(CityClass *)city;

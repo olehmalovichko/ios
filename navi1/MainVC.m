@@ -13,7 +13,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "CityCell.h"
 
-@interface MainVC () 
+@interface MainVC ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableCity;
 @property (strong, nonatomic) NSArray *tableData;
@@ -33,7 +33,7 @@
     [super viewDidLoad];
     NSLog(@"---start---");
     NSLog(NSLocalizedString(@"weather", nil));
- 
+    
     //delete !!!
     self.tableData = [DataManager allCities];
     self.tableCity.dataSource = self;
@@ -45,7 +45,7 @@
         NSLog(@"загрузка завершена");
         if (city) {
             //[DataManager addCity:city];
-            [self.tableCity reloadData];            
+            [self.tableCity reloadData];
         }
     }];
     
@@ -63,7 +63,7 @@
         WeatherCityVC *weatherCityVC = segue.destinationViewController;
         weatherCityVC.city = self.citySelectClass;
     }
-
+    
     
 }
 
@@ -84,7 +84,7 @@
         [cell setNeedsLayout];
     }];
     
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;  
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.35];
     
     return cell;
@@ -128,7 +128,7 @@
 #pragma mark reloadTable Data
 
 -(void)reloadTableData {
-  //  [self.table reloadData];
+    //  [self.table reloadData];
     NSLog(@"---reload delegat---");
     self.tableData = [DataManager allCities];
     [self.tableCity reloadData];
@@ -142,13 +142,21 @@
     NSLog(@"--update weather--");
     
     for (CityClass *city in self.tableData) {
-        [DataManager getWeather:city];
+         [DataManager getWeather:city];
+        
+//        [DataManager requestWeatherForCityWithId:cityy.idCity completion:^(CityClass *city, NSError *error) {
+//            NSLog(@"загрузка завершена");
+//            if (city) {
+//                //[DataManager addCity:city];
+//                [self.tableCity reloadData];
+//            }
+//        }];
         [DataManager cityUpdate:city];
     }
     
-    [self.tableCity reloadData];
- 
-     NSLog(@"--update complete--");
+    //[self.tableCity reloadData];
+    
+    NSLog(@"--update complete--");
     
 }
 

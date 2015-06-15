@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zNP-wx-nn7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zNP-wx-nn7">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -154,6 +154,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background_city" translatesAutoresizingMaskIntoConstraints="NO" id="GH8-Ol-IqY">
+                                <rect key="frame" x="600" y="0.0" width="0.0" height="600"/>
+                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ks2-kq-Puf">
                                 <rect key="frame" x="225" y="117" width="150" height="30"/>
                                 <constraints>
@@ -181,8 +184,11 @@
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="lt8-c5-B7Q" secondAttribute="centerX" id="6zC-zH-c4R"/>
                             <constraint firstItem="lt8-c5-B7Q" firstAttribute="top" secondItem="ks2-kq-Puf" secondAttribute="bottom" constant="32" id="Bf8-xj-104"/>
+                            <constraint firstAttribute="trailing" secondItem="GH8-Ol-IqY" secondAttribute="trailing" id="GnH-o5-69B"/>
                             <constraint firstAttribute="centerX" secondItem="ks2-kq-Puf" secondAttribute="centerX" id="HBa-np-8dz"/>
+                            <constraint firstAttribute="bottom" secondItem="GH8-Ol-IqY" secondAttribute="bottom" id="HjM-js-u0N"/>
                             <constraint firstItem="ks2-kq-Puf" firstAttribute="top" secondItem="veg-I2-6hy" secondAttribute="bottom" constant="53" id="Yp3-i5-hgi"/>
+                            <constraint firstItem="GH8-Ol-IqY" firstAttribute="top" secondItem="SD8-jB-kTA" secondAttribute="top" id="jQD-Yx-Z30"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -195,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8az-yf-0Ry" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1749" y="-677"/>
+            <point key="canvasLocation" x="1699" y="-583"/>
         </scene>
         <!--Weather CityVC-->
         <scene sceneID="l8u-YM-Rv9">
@@ -209,6 +215,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="7K6-Ti-7NE">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelData" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5W-w3-F1g">
                                 <rect key="frame" x="120" y="446" width="360" height="32"/>
                                 <constraints>
@@ -251,12 +260,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="x8T-n1-Hcl" secondAttribute="centerX" id="7PX-4U-CKb"/>
+                            <constraint firstAttribute="trailing" secondItem="7K6-Ti-7NE" secondAttribute="trailing" id="7Ti-WZ-KGF"/>
                             <constraint firstItem="V5W-w3-F1g" firstAttribute="leading" secondItem="pnQ-nM-Svz" secondAttribute="leading" id="Dmk-Mv-yPI"/>
+                            <constraint firstItem="7K6-Ti-7NE" firstAttribute="leading" secondItem="gWF-df-Slh" secondAttribute="leading" id="E5E-Qc-KBO"/>
                             <constraint firstItem="vSa-9Z-Iha" firstAttribute="top" secondItem="gWF-df-Slh" secondAttribute="top" constant="130" id="KBI-AT-1gD"/>
+                            <constraint firstAttribute="bottom" secondItem="7K6-Ti-7NE" secondAttribute="bottom" id="KJh-BV-gpr"/>
                             <constraint firstItem="V5W-w3-F1g" firstAttribute="leading" secondItem="vSa-9Z-Iha" secondAttribute="leading" id="N4B-yK-3rs"/>
+                            <constraint firstItem="7K6-Ti-7NE" firstAttribute="top" secondItem="gWF-df-Slh" secondAttribute="top" id="NhK-7N-fnl"/>
                             <constraint firstItem="vSa-9Z-Iha" firstAttribute="top" secondItem="x8T-n1-Hcl" secondAttribute="bottom" constant="14" id="YEB-BP-rBd"/>
                             <constraint firstAttribute="centerX" secondItem="pnQ-nM-Svz" secondAttribute="centerX" id="Z4F-XH-boJ"/>
                             <constraint firstItem="V5W-w3-F1g" firstAttribute="centerX" secondItem="UGd-hS-92o" secondAttribute="centerX" id="aac-Ng-Qk6"/>
+                            <constraint firstAttribute="bottom" secondItem="7K6-Ti-7NE" secondAttribute="bottom" id="cPj-RW-KSl"/>
                             <constraint firstAttribute="centerX" secondItem="UGd-hS-92o" secondAttribute="centerX" id="d7X-Bl-cP8"/>
                             <constraint firstItem="pnQ-nM-Svz" firstAttribute="top" secondItem="vSa-9Z-Iha" secondAttribute="bottom" constant="36" id="fhJ-li-tsA"/>
                             <constraint firstItem="j2S-e0-DfY" firstAttribute="top" secondItem="V5W-w3-F1g" secondAttribute="bottom" constant="122" id="fl4-gB-Jz2"/>
@@ -298,10 +312,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Hx-93-TPk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-73" y="-52"/>
+            <point key="canvasLocation" x="51" y="-39"/>
         </scene>
     </scenes>
     <resources>
+        <image name="background" width="2848" height="2457"/>
         <image name="background_city" width="1500" height="1500"/>
     </resources>
 </document>
